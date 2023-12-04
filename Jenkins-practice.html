@@ -1,0 +1,2339 @@
+<!DOCTYPE html><html><head>
+      <title>Jenkins-practice</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:////Users/ryan/.vscode/extensions/shd101wyy.markdown-preview-enhanced-0.8.10/crossnote/dependencies/katex/katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<h1 id="jenkins--cicd-pipeline-for-kubernetes">Jenkins &amp; CI/CD Pipeline for Kubernetes </h1>
+<h2 id="실습-1-1-실습에-사용하는-서비스-및-회원가입">실습 1-1: 실습에 사용하는 서비스 및 회원가입 </h2>
+<ul>
+<li>AWS: <a href="https://aws.amazon.com/ko/console/">https://aws.amazon.com/ko/console/</a></li>
+<li>Github: <a href="https://github.com/">https://github.com/</a></li>
+<li>도커 허브: <a href="https://hub.docker.com/">https://hub.docker.com/</a></li>
+</ul>
+<hr>
+<h2 id="실습-1-2-jenkins-인스턴스-생성">실습 1-2: Jenkins 인스턴스 생성 </h2>
+<h3 id="키-페어-생성">키 페어 생성 </h3>
+<ul>
+<li><a href="https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#KeyPairs:">https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#KeyPairs:</a></li>
+<li>이름: sshkey</li>
+<li>개인 키 다운로드</li>
+</ul>
+<h3 id="보안-그룹-생성">보안 그룹 생성 </h3>
+<ul>
+<li><a href="https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#SecurityGroups:">https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#SecurityGroups:</a></li>
+<li>이름: allow-ssh-http</li>
+<li>규칙
+<ul>
+<li>SSH</li>
+<li>HTTP</li>
+<li>TCP/8080</li>
+</ul>
+</li>
+</ul>
+<h3 id="젠킨스-인스턴스-생성">젠킨스 인스턴스 생성 </h3>
+<ul>
+<li><a href="https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:">https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:</a></li>
+<li>이름: Jenkins</li>
+<li>AMI 이미지: Ubuntu 22.04</li>
+<li>인스턴스 유형: t3.medium</li>
+<li>키 페어: sshkey</li>
+<li>방화벽(보안 그룹): allow-ssh-http</li>
+</ul>
+<h3 id="ssh-접속-확인">SSH 접속 확인 </h3>
+<p>개인 키가 있는 디렉토리로 이동 후</p>
+<p>(옵션) 사용하는 운영체제가 유닉스(리눅스, 맥) 계열인 경우, 개인 키 파일의 권한 설정</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">chmod</span> <span class="token number">600</span> sshkey.pem
+</code></pre><p>SSH 접속 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">ssh</span> <span class="token parameter variable">-i</span> <span class="token string">'sshkey.pem'</span> ubuntu@<span class="token operator">&lt;</span>PUBLIC_IP<span class="token operator">&gt;</span>
+</code></pre><hr>
+<h2 id="실습-1-3-git-저장소-준비포크-및-클론">실습 1-3: Git 저장소 준비(포크 및 클론) </h2>
+<p>원본 소스 저장소 주소: <a href="https://github.com/c1t1d0s7/source-maven-java-spring-hello-webapp.git">https://github.com/c1t1d0s7/source-maven-java-spring-hello-webapp.git</a></p>
+<h3 id="저장소-포크">저장소 포크 </h3>
+<p>포크 방법 참고: <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo?tool=webui#forking-a-repository">https://docs.github.com/en/get-started/quickstart/fork-a-repo?tool=webui#forking-a-repository</a></p>
+<h3 id="푸시를-위한-ssh-키-생성-및-등록">푸시를 위한 SSH 키 생성 및 등록 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ssh-keygen <span class="token parameter variable">-t</span> ed25519 <span class="token parameter variable">-C</span> <span class="token string">"your_email@example.com"</span>
+</code></pre><p>SSH 키 생성 참고: <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#generating-a-new-ssh-key</a></p>
+<p>SSH 키 등록 참고: <a href="https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account">https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account#adding-a-new-ssh-key-to-your-account</a></p>
+<h3 id="포크한-저장소-클론">포크한 저장소 클론 </h3>
+<p>클론 방법 참고: <a href="https://docs.github.com/en/get-started/quickstart/fork-a-repo?tool=webui#forking-a-repository">https://docs.github.com/en/get-started/quickstart/fork-a-repo?tool=webui#forking-a-repository</a></p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ~/git <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/git
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> clone git@github.com:<span class="token operator">&lt;</span>USERNAME<span class="token operator">&gt;</span>/<span class="token operator">&lt;</span>REPOSITORY<span class="token operator">&gt;</span>.git
+</code></pre><hr>
+<h2 id="실습-2-1-젠킨스-설치-및-인터페이스-확인">실습 2-1: 젠킨스 설치 및 인터페이스 확인 </h2>
+<h3 id="젠킨스-인스턴스에-접속해-젠킨스-설치">젠킨스 인스턴스에 접속해 젠킨스 설치 </h3>
+<p>Java 설치</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-11-jdk
+</code></pre><p>저장소 서명 키 저장</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">wget</span> <span class="token parameter variable">-O</span> /usr/share/keyrings/jenkins-keyring.asc <span class="token punctuation">\</span>
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+</code></pre><p>저장소 추가</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">echo</span> deb <span class="token punctuation">[</span>signed-by<span class="token operator">=</span>/usr/share/keyrings/jenkins-keyring.asc<span class="token punctuation">]</span> <span class="token punctuation">\</span>
+  https://pkg.jenkins.io/debian-stable binary/ <span class="token operator">|</span> <span class="token function">sudo</span> <span class="token function">tee</span> <span class="token punctuation">\</span>
+  /etc/apt/sources.list.d/jenkins.list <span class="token operator">&gt;</span> /dev/null
+</code></pre><p>젠킨스 패키지 설치</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> jenkins
+</code></pre><h3 id="젠킨스-초기-구성">젠킨스 초기 구성 </h3>
+<p>젠킨스 접속</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://&lt;PUBLIC_IP/PUBLIC_DNS&gt;:8080
+</code></pre><p>초기 패스워드 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">cat</span> /var/lib/jenkins/secrets/initialAdminPassword
+</code></pre><h3 id="젠킨스-대시보드-인터페이스-확인">젠킨스 대시보드 인터페이스 확인 </h3>
+<p>글로벌 도구: <code>Dashboard &gt; Jenkins 관리 &gt; Global Tool Configuration</code></p>
+<p>플러그인 관리: <code>Dashboard &gt; Jenkins 관리 &gt; 플러그인 관리</code></p>
+<p>자격증명: <code>Dashboard &gt; Jenkins 관리 &gt; Manage Credentials</code></p>
+<hr>
+<h2 id="실습-2-2-freestyle-프로젝트">실습 2-2: Freestyle 프로젝트 </h2>
+<h3 id="작업-생성">작업 생성 </h3>
+<p><code>Dashboard &gt; 새로운 Item</code></p>
+<ul>
+<li>아이템 이름: <code>test_project</code></li>
+<li><code>Freestyle project</code> 선택 &gt; <code>OK</code>
+<ul>
+<li>소스 코드 관리: <code>Git</code>
+<ul>
+<li>Repository URL: <code>&lt;YOUR_REPOSITORY&gt;</code></li>
+<li>Branch Specifier: <code>*/main</code></li>
+</ul>
+</li>
+<li>Build Steps
+<ul>
+<li>Execute Shell
+<ul>
+<li>Command
+<ul>
+<li><code>echo "hello world" &gt; hello.txt</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>저장</code></li>
+</ul>
+</li>
+<li><code>지금 빌드</code></li>
+<li>Build History: <code>#1</code> &gt; <code>Console Output</code> 확인</li>
+</ul>
+<h3 id="작업-확인">작업 확인 </h3>
+<p>젠킨스 인스턴스:</p>
+<ul>
+<li><code>/var/lib/jenkins/workspace/test_project</code> 디렉토리 확인</li>
+</ul>
+<hr>
+<h2 id="실습-2-3-maven-설치-및-maven-프로젝트">실습 2-3: Maven 설치 및 Maven 프로젝트 </h2>
+<h3 id="maven-설치">Maven 설치 </h3>
+<p>Maven 패키지 설치:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> maven
+</code></pre><h3 id="jdk-maven-글로벌-도구-설정">JDK, Maven 글로벌 도구 설정 </h3>
+<p><code>Dashboard &gt; Jenkins 관리 &gt; Global Tool Configuration</code></p>
+<ul>
+<li>JDK
+<ul>
+<li>Name: java-11</li>
+<li>Install automatically 해제</li>
+<li>JAVA_HOME: <code>/usr/lib/jvm/java-11-openjdk-amd64/</code></li>
+</ul>
+</li>
+<li>Maven
+<ul>
+<li>Name: Maven-3</li>
+<li>Install automatically 해제</li>
+<li>MAVEN_HOME: <code>/usr/share/maven</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="젠킨스-플러그인-설치">젠킨스 플러그인 설치 </h3>
+<p><code>Dashboard &gt; Jenkins 관리 &gt; 플러그인 관리</code></p>
+<ul>
+<li>설치 가능 &gt; <code>Maven Intergration</code></li>
+</ul>
+<h3 id="작업-생성-1">작업 생성 </h3>
+<p><code>Dashboard &gt; 새로운 Item</code></p>
+<ul>
+<li>아이템 이름: <code>maven_project</code></li>
+<li><code>Maven project</code> 선택 &gt; <code>OK</code>
+<ul>
+<li>소스 코드 관리: <code>Git</code>
+<ul>
+<li>Repository URL: <code>&lt;YOUR_REPOSITORY&gt;</code></li>
+<li>Branch Specifier: <code>*/main</code></li>
+</ul>
+</li>
+<li>Build
+<ul>
+<li>Root POM: <code>pom.xml</code></li>
+<li>Goals and options: <code>clean package</code></li>
+</ul>
+</li>
+<li><code>저장</code></li>
+</ul>
+</li>
+<li><code>지금 빌드</code></li>
+<li>Build History: <code>#1</code> &gt; <code>Console Output</code> 확인</li>
+<li>작업공간 확인</li>
+</ul>
+<h3 id="작업-확인-1">작업 확인 </h3>
+<ul>
+<li><code>/var/lib/jenkins/workspace/maven_project</code> 디렉토리 확인</li>
+<li><code>/var/lib/jenkins/workspace/maven_project/target</code> 디렉토리 확인 및 <code>hello-world.war</code> 파일 확인</li>
+</ul>
+<hr>
+<h2 id="실습-2-4-tomcat-인스턴스-생성-및-tomcat-구성-및-maven-프로젝트">실습 2-4: Tomcat 인스턴스 생성 및 Tomcat 구성 및 Maven 프로젝트 </h2>
+<h3 id="tomcat-인스턴스-생성">Tomcat 인스턴스 생성 </h3>
+<ul>
+<li>Tomcat 인스턴스 생성
+<ul>
+<li>이름: Tomcat</li>
+<li>AMI 이미지: Ubuntu 22.04</li>
+<li>인스턴스 유형: t3.small</li>
+<li>키 페어: sshkey</li>
+<li>방화벽(보안 그룹): allow-ssh-http</li>
+</ul>
+</li>
+</ul>
+<h3 id="tomcat-설치">Tomcat 설치 </h3>
+<p>Tomcat 인스턴스 접속</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> tomcat9 tomcat9-admin
+</code></pre><h3 id="tomcat-manager-구성">Tomcat Manager 구성 </h3>
+<p><code>/etc/tomcat9/tomcat-users.xml</code></p>
+<pre data-role="codeBlock" data-info="xml" class="language-xml xml"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>tomcat-users</span><span class="token punctuation">&gt;</span></span>
+...
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span> <span class="token attr-name">rolename</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manager-gui<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span> <span class="token attr-name">rolename</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manager-script<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span> <span class="token attr-name">rolename</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manager-jmx<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>role</span> <span class="token attr-name">rolename</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manager-status<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+  <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>user</span> <span class="token attr-name">username</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>admin<span class="token punctuation">"</span></span> <span class="token attr-name">password</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>P@ssw0rd<span class="token punctuation">"</span></span> <span class="token attr-name">roles</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>manager-gui, manager-script, manager-jmx, manager-status<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>tomcat-users</span><span class="token punctuation">&gt;</span></span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> systemctl restart tomcat9
+</code></pre><h2 id="tomcat-및-tomcat-manager-접속-확인">Tomcat 및 Tomcat Manager 접속 확인 </h2>
+<p>Tomcat 접속 주소<br>
+<code>http://&lt;TOMCAT_ADDRESS&gt;:8080/</code></p>
+<p>Tomcat Manager<br>
+<code>http://&lt;TOMCAT_ADDRESS&gt;:8080/manager/html</code></p>
+<h2 id="tomcat-배포-플러그인-설치">Tomcat 배포 플러그인 설치 </h2>
+<p><code>Dashboard &gt; Jenkins 관리 &gt; 플러그인 관리</code></p>
+<ul>
+<li>설치 가능 &gt; <code>Deploy to container</code></li>
+</ul>
+<h2 id="tomcat-manager-자격증명-구성">Tomcat Manager 자격증명 구성 </h2>
+<p><code>Dashboard &gt; Jenkins 관리 &gt; Manage Credentials</code></p>
+<ul>
+<li><code>(global)</code> 선택</li>
+<li><code>Add Credentials</code> 선택
+<ul>
+<li>Kind: <code>Username with password</code>
+<ul>
+<li>Username: <code>admin</code></li>
+<li>Password: <code>P@ssw0rd</code></li>
+<li>ID: <code>tomcat-manager</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="작업-수정">작업 수정 </h2>
+<p><code>Dashboard &gt; maven_project &gt; 구성</code></p>
+<ul>
+<li>빌드 후 조치
+<ul>
+<li>Deploy war/war to a container
+<ul>
+<li>WAR/EAR files: <code>target/hello-world.war</code></li>
+<li>Containers
+<ul>
+<li>Tomcat 9.X Remote
+<ul>
+<li>Credentials: <code>admin/*****</code></li>
+<li>Tomcat URL: <code>http://&lt;TOMCAT_IP&gt;:8080/</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>지금 빌드</li>
+<li>Build History: <code>#1</code> &gt; <code>Console Output</code> 확인</li>
+<li>작업공간 확인</li>
+</ul>
+<h2 id="배포-확인">배포 확인 </h2>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://&lt;TOMCAT_ADDRESS&gt;:8080/hello-world/
+</code></pre><hr>
+<h2 id="실습-2-5-파이프라인-기본">실습 2-5: 파이프라인 기본 </h2>
+<p><code>Dashboard &gt; 새로운 Item</code></p>
+<ul>
+<li>아이템 이름: <code>test_pipeline</code></li>
+<li><code>Pipeline</code> 선택 &gt; <code>OK</code>
+<ul>
+<li>Pipeline
+<ul>
+<li>Definition: <code>Pipeline script</code>
+<ul>
+<li>Script: <code>Hello World</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>저장</code></li>
+</ul>
+</li>
+<li><code>지금 빌드</code></li>
+<li>Build History: <code>#1</code> &gt; <code>Console Output</code> 확인</li>
+<li>작업공간 확인</li>
+</ul>
+<hr>
+<h2 id="실습-2-6-파이프라인--maven--tomcat-작업-구성">실습 2-6: 파이프라인 + Maven + Tomcat 작업 구성 </h2>
+<h3 id="작업-생성-2">작업 생성 </h3>
+<p><code>Dashboard &gt; 새로운 Item</code></p>
+<ul>
+<li>아이템 이름: <code>maven_pipeline_tomcat</code></li>
+<li><code>Pipeline</code> 선택 &gt; <code>OK</code>
+<ul>
+<li>Pipeline
+<ul>
+<li>Definition: <code>Pipeline script from SCM</code>
+<ul>
+<li>SCM: <code>Git</code>
+<ul>
+<li>Repository URL: <code>&lt;YOUR_REPOSITORY&gt;</code></li>
+<li>Branch Scpecifier: <code>*/main</code></li>
+</ul>
+</li>
+<li>Script Path: <code>Jenkinsfile</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>저장</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="jenkinsfile-생성">Jenkinsfile 생성 </h3>
+<p>Git 저장소에 <code>Jenkinsfile</code> 생성</p>
+<p><code>Jenkinsfile</code></p>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>pipeline <span class="token punctuation">{</span>
+  agent any
+
+  triggers <span class="token punctuation">{</span>
+    <span class="token function">pollSCM</span><span class="token punctuation">(</span><span class="token string">'* * * * *'</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+
+  stages <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Checkout'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        git branch<span class="token punctuation">:</span> <span class="token string">'main'</span><span class="token punctuation">,</span> 
+        url<span class="token punctuation">:</span> <span class="token string">'&lt;URL&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'&lt;COMMAND&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'&lt;COMMAND&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Deploy'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        deploy adapters<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token function">tomcat9</span><span class="token punctuation">(</span>credentialsId<span class="token punctuation">:</span> <span class="token string">'&lt;NAME&gt;'</span><span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token string">'&lt;URL&gt;'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">,</span> contextPath<span class="token punctuation">:</span> null<span class="token punctuation">,</span> war<span class="token punctuation">:</span> <span class="token string">'path/to/war'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><p>Git 저장소 푸시</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token operator">&lt;</span>MESSAGE<span class="token operator">&gt;</span>
+<span class="token function">git</span> push
+</code></pre><h3 id="배포-확인-1">배포 확인 </h3>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://&lt;TOMCAT_ADDRESS&gt;:8080/hello-world/
+</code></pre><hr>
+<h2 id="실습-2-7-젠킨스-노드슬레이브-구성">실습 2-7: 젠킨스 노드(슬레이브) 구성 </h2>
+<h3 id="jenkins-node-인스턴스-생성">Jenkins-node 인스턴스 생성 </h3>
+<ul>
+<li>젠킨스 노드(슬레이브) 인스턴스 생성
+<ul>
+<li>이름: Jenkins-node</li>
+<li>AMI 이미지: Ubuntu 22.04</li>
+<li>인스턴스 유형: t3.small</li>
+<li>키 페어: sshkey</li>
+<li>방화벽(보안 그룹): allow-ssh-http</li>
+</ul>
+</li>
+</ul>
+<h3 id="jenkins-node-인스턴스-구성">Jenkins-node 인스턴스 구성 </h3>
+<p>Jenkins-node에 SSH 접속</p>
+<p>OpenJDK 및 Maven 설치:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-11-jdk maven
+</code></pre><p>Jenkins 사용자 생성:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">useradd</span> jenkins <span class="token parameter variable">-d</span> /var/lib/jenkins <span class="token parameter variable">-m</span> <span class="token parameter variable">-s</span> /bin/bash
+</code></pre><p>Jenkins 사용자 패스워드:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">passwd</span> jenkins
+</code></pre><p>SSH 패스워드 인증 허용:</p>
+<p><code>/etc/ssh/sshd_config</code></p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code> 58 PasswordAuthentication yes
+</code></pre><p>SSH 서비스 재시작:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> systemctl restart <span class="token function">ssh</span>
+</code></pre><h3 id="젠킨스-시스템에서-노드슬레이브로-ssh-접속-확인">젠킨스 시스템에서 노드(슬레이브)로 SSH 접속 확인 </h3>
+<p>젠킨스 시스템에 SSH 접속</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token parameter variable">-u</span> jenkins <span class="token function">ssh</span> jenkins@<span class="token operator">&lt;</span>JENKINS_NODE_PRIVATE_IP<span class="token operator">&gt;</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">exit</span>
+</code></pre><h3 id="신규-노드-추가">신규 노드 추가 </h3>
+<p><code>Dashboard &gt; Nodes</code></p>
+<ul>
+<li>노드명: <code>jenkins-node</code></li>
+<li>Permanenet Agent 체크
+<ul>
+<li>Name: <code>Jenkins-node</code></li>
+<li>Remote root directory: <code>/var/lib/jenkins</code></li>
+<li>Labels: <code>jenkins-node</code></li>
+<li>Launch method: <code>Launch agent via SSH</code>
+<ul>
+<li>Host: <code>&lt;JENKINS_NODE_PRIVATE_IP&gt;</code></li>
+<li>Credentials
+<ul>
+<li><code>Add</code> &gt; <code>Jenkins</code>
+<ul>
+<li>Kind: <code>Username with password</code>
+<ul>
+<li>Username: <code>jenkins</code></li>
+<li>Password: <code>&lt;PASSWORD&gt;</code></li>
+<li>ID: <code>jenkins-node-ssh</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>생성한 자격 증명 선택</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>Save</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="레이블을-사용하도록-jenkinsfile-수정">레이블을 사용하도록 Jenkinsfile 수정 </h3>
+<p><code>Jenkinsfile</code></p>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>pipeline <span class="token punctuation">{</span>
+    agent <span class="token punctuation">{</span>
+      label <span class="token interpolation-string"><span class="token string">"jenkins-node"</span></span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">...</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token operator">&lt;</span>MESSAGE<span class="token operator">&gt;</span>
+<span class="token function">git</span> push
+</code></pre><h3 id="작업-확인-2">작업 확인 </h3>
+<p><code>Dashboard &gt; maven_pipeline_tomcat</code></p>
+<p>해당 작업에서 콘솔 출력 확인:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>...
+Running on jenkins-node in /var/lib/jenkins/workspace/maven_pipeline_tomcat
+...
+</code></pre><hr>
+<h2 id="실습-2-8-인스턴스-정리">실습 2-8: 인스턴스 정리 </h2>
+<p>Jenkins, Tomcat, Jenkins-node 인스턴스 삭제</p>
+<hr>
+<h2 id="실습-3-1-도커-인스턴스-생성">실습 3-1: 도커 인스턴스 생성 </h2>
+<ul>
+<li>도커 인스턴스 생성
+<ul>
+<li>이름: Docker</li>
+<li>AMI 이미지: Ubuntu 22.04</li>
+<li>인스턴스 유형: t3.medium</li>
+<li>키 페어: sshkey</li>
+<li>방화벽(보안 그룹): allow-ssh-http</li>
+<li>스토리지 구성: <strong>30 GB</strong></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="실습-3-2-도커-설치">실습 3-2: 도커 설치 </h2>
+<p>도커 인스턴스에 SSH 접속</p>
+<p>도커 설치: <a href="https://docs.docker.com/engine/install/ubuntu/">https://docs.docker.com/engine/install/ubuntu/</a></p>
+<h3 id="인덱스-업데이트-및-기본-패키지-설치">인덱스 업데이트 및 기본 패키지 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> ca-certificates <span class="token function">curl</span> gnupg lsb-release
+</code></pre><h3 id="gpg키-설치">GPG키 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">install</span> <span class="token parameter variable">-m</span> 0755 <span class="token parameter variable">-d</span> /etc/apt/keyrings
+<span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://download.docker.com/linux/ubuntu/gpg <span class="token operator">|</span> <span class="token function">sudo</span> gpg <span class="token parameter variable">--dearmor</span> <span class="token parameter variable">-o</span> /etc/apt/keyrings/docker.gpg
+<span class="token function">sudo</span> <span class="token function">chmod</span> a+r /etc/apt/keyrings/docker.gpg
+</code></pre><h3 id="패키지-저장소-설정">패키지 저장소 설정 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">echo</span> <span class="token punctuation">\</span>
+  <span class="token string">"deb [arch="</span><span class="token variable"><span class="token variable">$(</span>dpkg --print-architecture<span class="token variable">)</span></span><span class="token string">" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  "</span><span class="token variable"><span class="token variable">$(</span><span class="token builtin class-name">.</span> /etc/os-release <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">$VERSION_CODENAME</span>"</span><span class="token variable">)</span></span><span class="token string">" stable"</span> <span class="token operator">|</span> <span class="token punctuation">\</span>
+  <span class="token function">sudo</span> <span class="token function">tee</span> /etc/apt/sources.list.d/docker.list <span class="token operator">&gt;</span> /dev/null
+</code></pre><h3 id="패키지-설치">패키지 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+<span class="token function">sudo</span> <span class="token function">apt-get</span> <span class="token function">install</span> docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+</code></pre><h3 id="일반-사용자에게-docker-명령-실행-권한-부여">일반 사용자에게 docker 명령 실행 권한 부여 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">usermod</span> <span class="token parameter variable">-aG</span> <span class="token function">docker</span> <span class="token environment constant">$USER</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">exit</span>
+</code></pre><p>SSH 재접속</p>
+<h3 id="명령-실행-테스트">명령 실행 테스트 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container <span class="token function">ls</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container run hello-world
+</code></pre><hr>
+<h2 id="실습-3-3-도커-이미지-관련-명령-실습">실습 3-3: 도커 이미지 관련 명령 실습 </h2>
+<ul>
+<li>이미지 검색: <code>docker search TERM</code></li>
+<li>이미지 목록: <code>docker image ls</code></li>
+<li>이미지 풀: <code>docker image pull NAME[:TAG|@DIGEST]</code></li>
+<li>이미지 푸시: <code>docker image push NAME[:TAG]</code></li>
+<li>이미지 태그: <code>docker image tag SOURCE_IMAGE[:TAG] TARGET_IMAGE[:TAG]</code></li>
+<li>이미지 삭제: <code>docker image rm IMAGE</code></li>
+<li>태그가 없는 이미지 삭제: <code>docker image prune</code></li>
+<li>이미지 상세 정보: <code>docker image inspect IMAGE</code></li>
+<li>도커 허브 로그인: <code>docker login</code></li>
+<li>도커 허브 로그아웃: <code>docker logout</code></li>
+</ul>
+<hr>
+<h2 id="실습-3-4-도커-컨테이너-관련-실습">실습 3-4: 도커 컨테이너 관련 실습 </h2>
+<ul>
+<li>컨테이너 실행: <code>docker container run</code></li>
+<li>컨네이너 중지: <code>docker container stop</code></li>
+<li>컨테이너 삭제: <code>docker container rm</code></li>
+<li>컨테이너 목록: <code>docker container ls</code></li>
+<li>컨테이너의 프로세스 목록: <code>docker container top</code></li>
+<li>컨테이너의 리소스 사용량 확인: <code>docker container stats</code></li>
+<li>컨테이너의 애플리케이션 로그 확인: <code>docker container logs</code></li>
+<li>실행중인 컨테이너에 명령 실행: <code>docker container exec</code></li>
+<li>정지된 컨테이너 삭제: <code>docker container prune</code></li>
+</ul>
+<hr>
+<h2 id="실습-3-5-wordpress-cms-구성">실습 3-5: Wordpress CMS 구성 </h2>
+<ul>
+<li>Wordpress 이미지: <a href="https://hub.docker.com/_/wordpress">https://hub.docker.com/_/wordpress</a></li>
+<li>MySQL 이미지: <a href="https://hub.docker.com/_/mysql">https://hub.docker.com/_/mysql</a></li>
+</ul>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> network create wp-net
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> wp-db <span class="token punctuation">\</span>
+	<span class="token parameter variable">--net</span> wp-net <span class="token punctuation">\</span>
+	<span class="token parameter variable">-v</span> wp-db-vol:/var/lib/mysql <span class="token punctuation">\</span>
+	<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_ROOT_PASSWORD</span><span class="token operator">=</span>P@ssw0rd <span class="token punctuation">\</span>
+	<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_DATABASE</span><span class="token operator">=</span>wordpress <span class="token punctuation">\</span>
+	<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_USER</span><span class="token operator">=</span>wpadmin <span class="token punctuation">\</span>
+	<span class="token parameter variable">-e</span> <span class="token assign-left variable">MYSQL_PASSWORD</span><span class="token operator">=</span>P@ssw0rd <span class="token punctuation">\</span>
+	mysql:5.7
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container run <span class="token parameter variable">-d</span> <span class="token parameter variable">--name</span> wp-web <span class="token punctuation">\</span>
+	<span class="token parameter variable">--net</span> wp-net <span class="token punctuation">\</span>
+	<span class="token parameter variable">-v</span> wp-web-vol:/var/www/html <span class="token punctuation">\</span>
+	<span class="token parameter variable">--link</span> wp-db:wp-mysql <span class="token punctuation">\</span>
+	<span class="token parameter variable">-e</span> <span class="token assign-left variable">WORDPRESS_DB_HOST</span><span class="token operator">=</span>wp-mysql <span class="token punctuation">\</span>
+	<span class="token parameter variable">-e</span> <span class="token assign-left variable">WORDPRESS_DB_USER</span><span class="token operator">=</span>wpadmin <span class="token punctuation">\</span>
+	<span class="token parameter variable">-e</span> <span class="token assign-left variable">WORDPRESS_DB_NAME</span><span class="token operator">=</span>wordpress <span class="token punctuation">\</span>
+	<span class="token parameter variable">-e</span> <span class="token assign-left variable">WORDPRESS_DB_PASSWORD</span><span class="token operator">=</span>P@ssw0rd <span class="token punctuation">\</span>
+	<span class="token parameter variable">-p</span> <span class="token number">80</span>:80 <span class="token punctuation">\</span>
+	wordpress:latest
+</code></pre><hr>
+<h2 id="실습-3-6-tomcat-이미지-빌드-및-실행">실습 3-6: Tomcat 이미지 빌드 및 실행 </h2>
+<p>도커 인스턴스에 SSH 접속</p>
+<h3 id="github-저장소의-소스-빌드-후-war-파일을-포함하는-tomcat-이미지-빌드">GitHub 저장소의 소스 빌드 후 <code>WAR</code> 파일을 포함하는 Tomcat 이미지 빌드 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ~/myweb <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/myweb
+</code></pre><p><code>Dockerfile</code></p>
+<pre data-role="codeBlock" data-info="dockerfile" class="language-dockerfile dockerfile"><code><span class="token instruction"><span class="token keyword keyword-FROM">FROM</span> maven:3-openjdk-11 <span class="token keyword keyword-AS">AS</span> mbuilder</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> mkdir /hello</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> git clone &lt;URL&gt; /hello</span>
+<span class="token instruction"><span class="token keyword keyword-WORKDIR">WORKDIR</span> /hello</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> mvn package</span>
+
+<span class="token instruction"><span class="token keyword keyword-FROM">FROM</span> tomcat:9-jre11</span>
+<span class="token instruction"><span class="token keyword keyword-COPY">COPY</span> <span class="token options"><span class="token property">--from</span><span class="token punctuation">=</span><span class="token string">mbuilder</span></span> /hello/target/hello-world.war /usr/local/tomcat/webapps/</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> image build <span class="token parameter variable">-t</span> myhello <span class="token builtin class-name">.</span>
+</code></pre><h3 id="이미지-실행-및-검증">이미지 실행 및 검증 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container run <span class="token parameter variable">--name</span> myweb <span class="token parameter variable">-d</span> <span class="token parameter variable">-p</span> <span class="token number">80</span>:8080 myhello
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://localhost/hello-world/
+</code></pre><p>웹 브라우저:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://&lt;DOCKER_PUBLIC_IP/DNS&gt;/hello-world/
+</code></pre><p>컨테이너 정지 및 삭제</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container stop myweb
+<span class="token function">docker</span> container <span class="token function">rm</span> myweb
+</code></pre><hr>
+<h2 id="실습-3-7-도커에-젠킨스-컨테이너-설치-및-도커-에이전트-구성">실습 3-7: 도커에 젠킨스 컨테이너 설치 및 도커 에이전트 구성 </h2>
+<p><a href="https://www.jenkins.io/doc/book/installing/docker/">https://www.jenkins.io/doc/book/installing/docker/</a></p>
+<h3 id="도커에-젠킨스-컨테이너-설치">도커에 젠킨스 컨테이너 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ~/install_jenkins <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/install_jenkins
+</code></pre><p><code>jenkins</code> 도커 네트워크 생성</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> network create jenkins
+</code></pre><p>DinD(Docker in Docker) 컨테이너 실행</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container run <span class="token parameter variable">--name</span> docker-dind <span class="token parameter variable">--detach</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--privileged</span> <span class="token parameter variable">--network</span> jenkins --network-alias <span class="token function">docker</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--env</span> <span class="token assign-left variable">DOCKER_TLS_CERTDIR</span><span class="token operator">=</span>/certs <span class="token punctuation">\</span>
+  <span class="token parameter variable">--volume</span> jenkins-docker-certs:/certs/client <span class="token punctuation">\</span>
+  <span class="token parameter variable">--volume</span> jenkins-data:/var/jenkins_home <span class="token punctuation">\</span>
+  <span class="token parameter variable">--volume</span> docker:/var/lib/docker <span class="token punctuation">\</span>
+  <span class="token parameter variable">--publish</span> <span class="token number">2376</span>:2376 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+  docker:dind --storage-driver overlay2
+</code></pre><p><code>Dockerfile</code></p>
+<pre data-role="codeBlock" data-info="Dockerfile" class="language-dockerfile Dockerfile"><code><span class="token instruction"><span class="token keyword keyword-FROM">FROM</span> jenkins/jenkins:lts-jdk11</span>
+<span class="token instruction"><span class="token keyword keyword-USER">USER</span> root</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> apt-get update &amp;&amp; apt-get install -y lsb-release</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> curl -fsSLo /usr/share/keyrings/docker-archive-keyring.asc <span class="token operator">\</span>
+  https://download.docker.com/linux/debian/gpg</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> echo <span class="token string">"deb [arch=$(dpkg --print-architecture) \
+  signed-by=/usr/share/keyrings/docker-archive-keyring.asc] \
+  https://download.docker.com/linux/debian \
+  $(lsb_release -cs) stable"</span> &gt; /etc/apt/sources.list.d/docker.list</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> apt-get update &amp;&amp; apt-get install -y docker-ce-cli</span>
+<span class="token instruction"><span class="token keyword keyword-USER">USER</span> jenkins</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> jenkins-plugin-cli --plugins <span class="token string">"docker-plugin docker-workflow"</span></span>
+</code></pre><p><code>docker</code> 명령이 포함된 Jenkins 이미지 빌드</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> image build <span class="token parameter variable">-t</span> jenkins-docker:lts-jdk11 <span class="token builtin class-name">.</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container run <span class="token parameter variable">--name</span> jenkins-docker <span class="token punctuation">\</span>
+  <span class="token parameter variable">--restart</span><span class="token operator">=</span>always <span class="token punctuation">\</span>
+  <span class="token parameter variable">--detach</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--network</span> jenkins <span class="token punctuation">\</span>
+  <span class="token parameter variable">--env</span> <span class="token assign-left variable">DOCKER_HOST</span><span class="token operator">=</span>tcp://docker:2376 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--env</span> <span class="token assign-left variable">DOCKER_CERT_PATH</span><span class="token operator">=</span>/certs/client <span class="token punctuation">\</span>
+  <span class="token parameter variable">--env</span> <span class="token assign-left variable">DOCKER_TLS_VERIFY</span><span class="token operator">=</span><span class="token number">1</span> <span class="token punctuation">\</span>
+  <span class="token parameter variable">--publish</span> <span class="token number">8080</span>:8080 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--publish</span> <span class="token number">50000</span>:50000 <span class="token punctuation">\</span>
+  <span class="token parameter variable">--volume</span> jenkins-data:/var/jenkins_home <span class="token punctuation">\</span>
+  <span class="token parameter variable">--volume</span> jenkins-docker-certs:/certs/client:ro <span class="token punctuation">\</span>
+  jenkins-docker:lts-jdk11
+</code></pre><p>젠킨스 대시보드 접속</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://&lt;DOCKER_PUBLIC_IP/DNS&gt;:8080
+</code></pre><p>젠킨스 언락</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> <span class="token builtin class-name">exec</span> jenkins-docker <span class="token function">cat</span> /var/jenkins_home/secrets/initialAdminPassword
+</code></pre><p>젠킨스 플러그인 설치: <code>Install suggested plugins</code> 선택</p>
+<p>관리자 생성</p>
+<h3 id="도커-에이전트클라우드-구성">도커 에이전트/클라우드 구성 </h3>
+<p>Cloud Agent 구성</p>
+<p><code>Jenkins 관리</code> -&gt; <code>노드 관리</code> -&gt; <code>Configure Clouds</code> -&gt; <code>Add a new cloud</code> -&gt; <code>Docker</code></p>
+<ul>
+<li>Name: <code>docker</code></li>
+<li>Docker Cloud details...
+<ul>
+<li>Docker Host URI: <code>tcp://docker:2376</code></li>
+<li>Server credentials
+<ul>
+<li>Add -&gt; Jenkins
+<ul>
+<li>Kind: X.509 Client Certificate
+<ul>
+<li>Client Key
+<ul>
+<li><code>docker exec jenkins-docker cat /certs/client/key.pem</code> 명령 결과 붙여넣기</li>
+</ul>
+</li>
+<li>Client Cerificate
+<ul>
+<li><code>docker exec jenkins-docker cat /certs/client/cert.pem</code> 명령 결과 붙여넣기</li>
+</ul>
+</li>
+<li>Server CA Certificate
+<ul>
+<li><code>docker exec jenkins-docker cat /certs/client/ca.pem</code> 명령 결과 붙여넣기</li>
+</ul>
+</li>
+<li>ID: <code>docker-client-certs</code></li>
+<li>Add 선택</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>드롭다운 메뉴에서 <code>docker-client-certs</code> 선택</li>
+</ul>
+</li>
+<li>Test Connection 실행 및 확인</li>
+<li>Enabled: <code>활성</code></li>
+</ul>
+</li>
+<li>Docker Agent templates...
+<ul>
+<li>Add Docker Template
+<ul>
+<li>Labels: <code>docker</code></li>
+<li>Enabled: <code>활성</code></li>
+<li>Name: <code>docker-agent</code></li>
+<li>Docker Image: <code>jenkins/agent</code></li>
+<li>Connect method: <code>Attach Docker container</code> 선택</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Save 선택</li>
+</ul>
+<hr>
+<h2 id="실습-3-8-테스트-파이프라인-실행">실습 3-8: 테스트 파이프라인 실행 </h2>
+<p><a href="https://github.com/darinpope/jenkins-example-docker/">https://github.com/darinpope/jenkins-example-docker/</a><br>
+<a href="https://github.com/darinpope/jenkins-example-docker/blob/main/Jenkinsfile-1">https://github.com/darinpope/jenkins-example-docker/blob/main/Jenkinsfile-1</a></p>
+<p><code>Dashboard &gt; 새로운 Item</code></p>
+<ul>
+<li>Enter an item name: <code>docker-test-pipeline</code></li>
+<li>Pipeline 선택 &gt; OK</li>
+<li>Pipeline
+<ul>
+<li>Definition: <code>Pipeline script from SCM</code>
+<ul>
+<li>SCM: <code>Git</code>
+<ul>
+<li>Repositories
+<ul>
+<li>Repository URL: <code>https://github.com/darinpope/jenkins-example-docker.git</code></li>
+</ul>
+</li>
+<li>Branches to build
+<ul>
+<li>Branch Specifier: <code>*/main</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Script Path: <code>Jenkinsfile-1</code></li>
+</ul>
+</li>
+<li>저장</li>
+</ul>
+</li>
+<li>지금 빌드</li>
+<li>콘솔 출력 확인</li>
+</ul>
+<hr>
+<h2 id="실습-3-9-파이프라인--git--docker--maven--tomcat">실습 3-9: 파이프라인 + Git + Docker + Maven + Tomcat </h2>
+<h3 id="작업-생성-3">작업 생성 </h3>
+<p><code>Dashboard &gt; 새로운 Item</code></p>
+<ul>
+<li>아이템 이름: <code>docker_maven_pipeline</code></li>
+<li><code>Pipeline</code> 선택 &gt; <code>OK</code>
+<ul>
+<li>Pipeline
+<ul>
+<li>Definition: <code>Pipeline script from SCM</code>
+<ul>
+<li>SCM: <code>Git</code>
+<ul>
+<li>Repository URL: <code>&lt;YOUR_REPOSITORY&gt;</code></li>
+<li>Branch Scpecifier: <code>*/main</code></li>
+</ul>
+</li>
+<li>Script Path: <code>Jenkinsfile-docker</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>저장</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="jenkinsfile-docker-파일-생성">Jenkinsfile-docker 파일 생성 </h3>
+<p>Git 저장소에 <code>Jenkinsfile-docker</code> 생성</p>
+<p><code>Jenkinsfile-docker</code></p>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>pipeline <span class="token punctuation">{</span>
+  agent none
+
+  stages <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Checkout'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent any
+      steps <span class="token punctuation">{</span>
+        git branch<span class="token punctuation">:</span> <span class="token string">'main'</span><span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token string">'&lt;URL&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent <span class="token punctuation">{</span>
+        docker <span class="token punctuation">{</span> image <span class="token string">'maven:3-openjdk-11'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'mvn clean package -DskipTests=true'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent <span class="token punctuation">{</span>
+        docker <span class="token punctuation">{</span> image <span class="token string">'maven:3-openjdk-11'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'mvn test'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build Docker Image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent any
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'&lt;COMMAND&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Tag Docker Image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent any
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'&lt;COMMAND&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Publish Docker Image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent any
+      steps <span class="token punctuation">{</span>
+        <span class="token function">withDockerRegistry</span><span class="token punctuation">(</span>credentialsId<span class="token punctuation">:</span> <span class="token string">'docker-hub-token'</span><span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token string">'https://index.docker.io/v1/'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          sh <span class="token string">'&lt;COMMAND&gt;'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Run Docker Container'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent <span class="token punctuation">{</span>
+        docker <span class="token punctuation">{</span> image <span class="token string">'docker:dind'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'docker -H tcp://&lt;DOCKER_HOST_PRIVATE_IP&gt;:2375 container run --detach --name &lt;CONTAINER_NAME&gt; -p 80:8080 &lt;IMAGE&gt;:$BUILD_NUMBER'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="도커-파일-작성">도커 파일 작성 </h3>
+<p><code>Dockerfile</code></p>
+<pre data-role="codeBlock" data-info="dockerfile" class="language-dockerfile dockerfile"><code><span class="token instruction"><span class="token keyword keyword-FROM">FROM</span> tomcat:9-jre11</span>
+<span class="token instruction"><span class="token keyword keyword-COPY">COPY</span> target/hello-world.war /usr/local/tomcat/webapps/</span>
+</code></pre><h3 id="도커-허브-액세스-토큰-생성">도커 허브 액세스 토큰 생성 </h3>
+<p><a href="https://hub.docker.com">https://hub.docker.com</a> 로그인</p>
+<ul>
+<li>우측 상단 계정 선택</li>
+<li>Account Settings
+<ul>
+<li>Security
+<ul>
+<li><code>New Access Token</code>
+<ul>
+<li>Acess Token Description: <code>for jenkins</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>토큰 복사</li>
+</ul>
+<h3 id="젠킨스-자격-증명-추가">젠킨스 자격 증명 추가 </h3>
+<p><code>Dashboard &gt; Jenkins 관리 &gt; Manage Credentials &gt; (global) &gt; Add Credentials</code></p>
+<ul>
+<li>Kind: <code>Username with password</code>
+<ul>
+<li>Username: <code>&lt;DOCKER_HUB_USERNAME&gt;</code></li>
+<li>Password: <code>&lt;DOCKER_HUB_TOKEN&gt;</code></li>
+<li>ID: <code>docker-hub-token</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="도커-데몬-원격-호스트-설정">도커 데몬 원격 호스트 설정 </h3>
+<p>도커 서비스 유닛 편집</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> systemctl edit docker.service
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token punctuation">[</span>Service<span class="token punctuation">]</span>
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>
+<span class="token assign-left variable">ExecStart</span><span class="token operator">=</span>/usr/bin/dockerd <span class="token parameter variable">-H</span> fd:// <span class="token parameter variable">-H</span> tcp://0.0.0.0:2375 <span class="token parameter variable">--containerd</span><span class="token operator">=</span>/run/containerd/containerd.sock
+</code></pre><p>저장: <code>Ctrl-X</code> &gt; <code>Y</code> &gt; <code>Enter</code></p>
+<p>데몬 정보 다시 읽기</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> systemctl daemon-reload
+</code></pre><p>도커 서비스 재시작</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> systemctl restart docker.service
+</code></pre><p>확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> ss <span class="token parameter variable">-tnlp</span> <span class="token operator">|</span> <span class="token function">grep</span> dockerd
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>LISTEN    <span class="token number">0</span>         <span class="token number">4096</span>                     *:2375                   *:*        users:<span class="token variable"><span class="token punctuation">((</span>"dockerd"<span class="token punctuation">,</span>pid<span class="token operator">=</span><span class="token number">133430</span><span class="token punctuation">,</span>fd<span class="token operator">=</span><span class="token number">3</span><span class="token punctuation">))</span></span>
+</code></pre><h3 id="git-저장소-푸시">Git 저장소 푸시 </h3>
+<p><code>Dockerfile</code> 및 <code>Jenkinsfile-docker</code> 파일 푸시</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token operator">&lt;</span>MESSAGE<span class="token operator">&gt;</span>
+<span class="token function">git</span> push
+</code></pre><h3 id="배포-확인-2">배포 확인 </h3>
+<p>빌드 확인</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://&lt;DOCKER_PUBLIC_IP/DNS&gt;/hello-world/
+</code></pre><h3 id="다시-빌드">다시 빌드 </h3>
+<p><code>지금 빌드</code></p>
+<blockquote>
+<p>컨테이버 배포 및 실행 시 오류 발생<br>
+이미 컨테이너가 있기 때문</p>
+</blockquote>
+<hr>
+<h2 id="실습-4-1-앤서블-설치-및-웹서버-인스턴스-생성">실습 4-1: 앤서블 설치 및 웹서버 인스턴스 생성 </h2>
+<h3 id="도커-인스턴스앤서블-제어-노드에-앤서블-설치">도커 인스턴스(앤서블 제어 노드)에 앤서블 설치 </h3>
+<p>도커 인스턴스에 SSH 접속:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> update
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> software-properties-common
+<span class="token function">sudo</span> add-apt-repository <span class="token parameter variable">--yes</span> <span class="token parameter variable">--update</span> ppa:ansible/ansible
+<span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> ansible
+</code></pre><h3 id="웹서버앤서블-관리-노드-인스턴스-생성">웹서버(앤서블 관리 노드) 인스턴스 생성 </h3>
+<p><a href="https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:">https://ap-northeast-2.console.aws.amazon.com/ec2/home?region=ap-northeast-2#Instances:</a></p>
+<ul>
+<li>이름: Webserver</li>
+<li>AMI 이미지: Ubuntu 22.04</li>
+<li>인스턴스 유형: t3.small</li>
+<li>키 페어: sshkey</li>
+<li>방화벽(보안 그룹): allow-ssh-http</li>
+</ul>
+<hr>
+<h2 id="실습-4-2-ad-hoc-명령---ssh">실습 4-2: Ad-hoc 명령 - SSH </h2>
+<h3 id="도커제어-노드-인스턴스에-ssh-키-쌍-생성">도커(제어 노드) 인스턴스에 SSH 키 쌍 생성 </h3>
+<p>도커 인스턴스에 SSH 접속</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ssh-keygen <span class="token parameter variable">-f</span> ~/.ssh/id_rsa <span class="token parameter variable">-N</span> <span class="token string">''</span>
+</code></pre><h3 id="웹서버관리-노드에-사용자-패스워드-설정-및-ssh-패스워드-인증-허용">웹서버(관리 노드)에 사용자 패스워드 설정 및 SSH 패스워드 인증 허용 </h3>
+<p>웝서버 인스턴스에 SSH 접속</p>
+<p>ubuntu 사용자 패스워드 구성:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">passwd</span> ubuntu
+</code></pre><p>SSH 패스워드 인증 허용:</p>
+<p><code>/etc/ssh/sshd_config</code></p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code> 58 PasswordAuthentication yes
+</code></pre><p>SSH 서비스 재시작:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> systemctl restart <span class="token function">ssh</span>
+</code></pre><h3 id="웹서버-관리-노드에-ssh-공개키-설치">웹서버 관리 노드에 SSH 공개키 설치 </h3>
+<p>도커 인스턴스에 SSH 접속</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ssh-copy-id ubuntu@<span class="token operator">&lt;</span>WEBSERVER_PRIVATE_IP<span class="token operator">&gt;</span>
+</code></pre><h3 id="웹서버-인스턴스를-관리-노드로-하는-인벤토리-파일-작성">웹서버 인스턴스를 관리 노드로 하는 인벤토리 파일 작성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ~/install_webserver <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/install_webserver
+</code></pre><p><code>hosts.ini</code></p>
+<pre data-role="codeBlock" data-info="ini" class="language-ini ini"><code><span class="token section"><span class="token punctuation">[</span><span class="token section-name selector">webservers</span><span class="token punctuation">]</span></span>
+<span class="token key attr-name">webserver ansible_host</span><span class="token punctuation">=</span><span class="token value attr-value">&lt;WEBSERVER_PRIVATE_IP&gt; ansible_user=ubuntu</span>
+</code></pre><h3 id="웹서버-인스턴스에-apache2-패키지-설치">웹서버 인스턴스에 Apache2 패키지 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ansible webservers <span class="token parameter variable">-i</span> hosts.ini <span class="token parameter variable">-m</span> <span class="token function">apt</span> <span class="token parameter variable">-a</span> <span class="token string">"name=apache2 state=present"</span> <span class="token parameter variable">-b</span>
+</code></pre><h3 id="웹서버-배포-확인">웹서버 배포 확인 </h3>
+<p>명령:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://<span class="token operator">&lt;</span>WEBSERVER_PUBLIC_IP<span class="token operator">&gt;</span> <span class="token parameter variable">-I</span>
+</code></pre><p>웹 브라우저:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://&lt;WEBSERVER_PUBLIC_IP&gt;
+</code></pre><hr>
+<h2 id="실습-4-3-ad-hoc-명령---도커">실습 4-3: Ad-hoc 명령 - 도커 </h2>
+<p>도커는 도커 인스턴스에 설치되어 있으며 도커 인스턴스가 제어 노드이자 관리 노드</p>
+<h3 id="도커-모듈을-위한-사전-요구사항-설치">도커 모듈을 위한 사전 요구사항 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> python3-docker
+</code></pre><h3 id="httpd22-이미지를-이용해-도커-컨테이너-실행">httpd:2.2 이미지를 이용해 도커 컨테이너 실행 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ansible localhost <span class="token parameter variable">-m</span> docker_container <span class="token parameter variable">-a</span> <span class="token string">"name=myapache image=httpd:2.2 state=started"</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container <span class="token function">ls</span>
+</code></pre><h3 id="httpd24-이미지로-컨테이너-재생성">httpd:2.4 이미지로 컨테이너 재생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ansible localhost <span class="token parameter variable">-m</span> docker_container <span class="token parameter variable">-a</span> <span class="token string">"name=myapache image=httpd:2.4 state=started"</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container <span class="token function">ls</span>
+</code></pre><p>한번더 실행</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ansible localhost <span class="token parameter variable">-m</span> docker_container <span class="token parameter variable">-a</span> <span class="token string">"name=myapache image=httpd:2.4 state=started"</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container <span class="token function">ls</span>
+</code></pre><p>컨테이너 삭제</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ansible localhost <span class="token parameter variable">-m</span> docker_container <span class="token parameter variable">-a</span> <span class="token string">"name=myapache image=httpd:2.4 state=absent"</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container <span class="token function">ls</span>
+</code></pre><hr>
+<h2 id="실습-4-4-플레이북---ssh">실습 4-4: 플레이북 - SSH </h2>
+<p>웹서버 인스턴스에 Apache2 패키지 설치</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> ~/install_webservers
+</code></pre><p><code>install_apache2.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install Apache2
+  <span class="token key atrule">hosts</span><span class="token punctuation">:</span> webservers
+
+  <span class="token key atrule">tasks</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Install Packages
+    <span class="token key atrule">apt</span><span class="token punctuation">:</span> 
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> apache2
+      <span class="token key atrule">state</span><span class="token punctuation">:</span> present
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Start Services
+    <span class="token key atrule">service</span><span class="token punctuation">:</span> 
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> apache2
+      <span class="token key atrule">state</span><span class="token punctuation">:</span> started
+      <span class="token key atrule">enabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ansible-playbook <span class="token parameter variable">-i</span> hosts.ini install_apache2.yaml <span class="token parameter variable">-b</span>
+</code></pre><blockquote>
+<p>이미 앞서 Ad-hoc 명령에서 설치 했음</p>
+</blockquote>
+<hr>
+<h2 id="실습-4-5-플레이북---docker">실습 4-5: 플레이북 - Docker </h2>
+<p>httpd:2.4 이미지로 컨테이너 생성</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ~/deploy_httpd_container <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/deploy_httpd_container
+</code></pre><p><code>deploy_httpd_container.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Deploy Httpd Container
+  <span class="token key atrule">hosts</span><span class="token punctuation">:</span> localhost
+  <span class="token key atrule">connection</span><span class="token punctuation">:</span> local
+
+  <span class="token key atrule">tasks</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> Create &amp; Start Container
+    <span class="token key atrule">docker_container</span><span class="token punctuation">:</span>
+      <span class="token key atrule">name</span><span class="token punctuation">:</span> myapache
+      <span class="token key atrule">image</span><span class="token punctuation">:</span> httpd<span class="token punctuation">:</span><span class="token number">2.4</span>
+      <span class="token key atrule">state</span><span class="token punctuation">:</span> started
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>ansible-playbook deploy_httpd_container.yaml
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> container stop myapache
+<span class="token function">docker</span> container <span class="token function">rm</span> myapache
+</code></pre><hr>
+<h2 id="실습-4-6-파이프라인--git--docker--maven--tomcat--ansible">실습 4-6: 파이프라인 + Git + Docker + Maven + Tomcat + Ansible </h2>
+<p><code>실습 3-9</code> 파이프라인 개선:</p>
+<ul>
+<li>컨테이너 배포를 위한 플레이북 작성</li>
+<li>파이프라인에 앤서블 적용</li>
+</ul>
+<h3 id="작업-수정-1">작업 수정 </h3>
+<p><code>Dashboard &gt; docker_maven_pipeline</code></p>
+<ul>
+<li><code>구성</code> 선택
+<ul>
+<li>Script Path: <code>Jenkinsfile-docker-ansible</code></li>
+<li><code>저장</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="jenkinsfile-docker-ansible-파일-생성">Jenkinsfile-docker-ansible 파일 생성 </h3>
+<p>Git 저장소에 <code>Jenkinsfile-docker-ansible</code> 생성</p>
+<p><code>Jenkinsfile-docker-ansible</code></p>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>pipeline <span class="token punctuation">{</span>
+  agent none
+
+  stages <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Checkout'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent any
+      steps <span class="token punctuation">{</span>
+        git branch<span class="token punctuation">:</span> <span class="token string">'main'</span><span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token string">'&lt;URL&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent <span class="token punctuation">{</span>
+        docker <span class="token punctuation">{</span> image <span class="token string">'maven:3-openjdk-11'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'mvn clean package -DskipTests=true'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent <span class="token punctuation">{</span>
+        docker <span class="token punctuation">{</span> image <span class="token string">'maven:3-openjdk-11'</span> <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'mvn test'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build Docker Image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent any
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'&lt;COMMAND&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Tag Docker Image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent any
+      steps <span class="token punctuation">{</span>
+        sh <span class="token string">'&lt;COMMAND&gt;'</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Publish Docker Image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent any
+      steps <span class="token punctuation">{</span>
+        <span class="token function">withDockerRegistry</span><span class="token punctuation">(</span>credentialsId<span class="token punctuation">:</span> <span class="token string">'docker-hub-token'</span><span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token string">'https://index.docker.io/v1/'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          sh <span class="token string">'&lt;COMMAND&gt;'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Run Docker Container'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      agent <span class="token punctuation">{</span>
+        docker <span class="token punctuation">{</span> 
+          image <span class="token string">'&lt;DOCKER_HUB_USERNAME&gt;/jenkins-ansible'</span>
+          args <span class="token string">'-u 0:0 -e DOCKER_HOST=tcp://&lt;DOCKER_PRIVATE_IP&gt;:2375'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">ansiblePlaybook</span><span class="token punctuation">(</span>playbook<span class="token punctuation">:</span> <span class="token string">'docker-container-deploy.yaml'</span><span class="token punctuation">)</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><blockquote>
+<p>컨테이너를 실행하기 위한 젠킨스 도커 에이전트가 필요!</p>
+</blockquote>
+<hr>
+<h2 id="옵션-실습-4-7-앤서블-젠킨스-도커-에이전트-이미지-생성">(옵션) 실습 4-7: 앤서블 젠킨스 도커 에이전트 이미지 생성 </h2>
+<h3 id="파이프라인에서-앤서블을-사용하기-위한-젠킨스-도커-에이전트-이미지-생성">파이프라인에서 앤서블을 사용하기 위한 젠킨스 도커 에이전트 이미지 생성 </h3>
+<ul>
+<li>docker:dind 이미지 사용</li>
+<li>Alpine 리눅스는 패키지 설치시 <code>apk</code> 명령 사용</li>
+</ul>
+<blockquote>
+<p><code>ghcr.io/c1t1d0s7/jenkins-ansible-agent</code> 이미지를 사용해도 됨</p>
+</blockquote>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ~/jenkins-ansible-agent <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/jenkins-ansible-agent
+</code></pre><p><code>Dockerfile</code></p>
+<pre data-role="codeBlock" data-info="dockerfile" class="language-dockerfile dockerfile"><code><span class="token instruction"><span class="token keyword keyword-FROM">FROM</span> docker:dind</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> apk add py3-pip &amp;&amp; pip3 install docker &amp;&amp; apk add ansible</span>
+<span class="token instruction"><span class="token keyword keyword-RUN">RUN</span> adduser -u 1000 jenkins jenkins -D</span>
+<span class="token instruction"><span class="token keyword keyword-USER">USER</span> jenkins</span>
+<span class="token instruction"><span class="token keyword keyword-ENTRYPOINT">ENTRYPOINT</span> []</span>
+<span class="token instruction"><span class="token keyword keyword-CMD">CMD</span> [<span class="token string">"sh"</span>]</span>
+</code></pre><h3 id="이미지-빌드">이미지 빌드 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> image build <span class="token parameter variable">-t</span> <span class="token operator">&lt;</span>DOCKER_HUB_USERNAME<span class="token operator">&gt;</span>/jenkins-ansible <span class="token builtin class-name">.</span>
+</code></pre><h3 id="이미지-푸시">이미지 푸시 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> login
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">docker</span> image push <span class="token operator">&lt;</span>DOCKER_HUB_USERNAME<span class="token operator">&gt;</span>/jenkins-ansible
+</code></pre><hr>
+<h2 id="실습-4-8-앤서블-도커가-적용된-파이프라인-마무리">실습 4-8: 앤서블, 도커가 적용된 파이프라인 마무리 </h2>
+<h3 id="앤서블-플러그인-설치">앤서블 플러그인 설치 </h3>
+<p><code>Dashboard &gt; Jenkins 관리 &gt; 플러그인 관리 &gt; 설치 가능</code>: <code>Ansible</code> 설치</p>
+<h3 id="컨테이너-배포-플레이북-작성">컨테이너 배포 플레이북 작성 </h3>
+<p><code>docker-container-deploy.yaml</code></p>
+<pre data-role="codeBlock" data-info="dockerfile" class="language-dockerfile dockerfile"><code>- hosts: localhost
+  connection: local
+  
+  tasks:
+  - name: Create &amp; Start Container
+    docker_container:
+      name: myweb
+      image: "&lt;IMAGE&gt;:{{ lookup('env','BUILD_NUMBER') }}"
+      state: started
+      ports:
+      - "80:8080"
+</code></pre><h3 id="git-저장소-푸시-1">Git 저장소 푸시 </h3>
+<p><code>docker-container-deploy.yaml</code> 및 <code>Jenkinsfile-docker-ansible</code> 푸시</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token operator">&lt;</span>MESSAGE<span class="token operator">&gt;</span>
+<span class="token function">git</span> push
+</code></pre><h3 id="작업-확인-3">작업 확인 </h3>
+<p>빌드 히스토리 확인</p>
+<p>웹 브라우저:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://&lt;DOCKER_PUBLIC_IP/DNS&gt;/hello-world/
+</code></pre><hr>
+<h2 id="실습-4-9-인스턴스-정리">실습 4-9: 인스턴스 정리 </h2>
+<p>Docker, Webserver 인스턴스 삭제</p>
+<hr>
+<h2 id="실습-5-1-eks-클러스터-배포-관련-도구-설치">실습 5-1: EKS 클러스터 배포 관련 도구 설치 </h2>
+<h3 id="옵션추천-패키지-관리자-설치">(옵션/추천) 패키지 관리자 설치 </h3>
+<h4 id="macos---homebrew">macOS - Homebrew </h4>
+<p><a href="https://brew.sh/index_ko">https://brew.sh/index_ko</a></p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>/bin/bash <span class="token parameter variable">-c</span> "<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> <span class="token parameter variable">-fsSL</span> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="token variable">)</span></span>
+</code></pre><h4 id="windows---chocolatey">Windows - Chocolatey </h4>
+<p><a href="https://chocolatey.org/">https://chocolatey.org/</a></p>
+<p>파워쉘을 관리자 권한으로 실행</p>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code><span class="token function">Set-ExecutionPolicy</span> Bypass <span class="token operator">-</span>Scope <span class="token keyword keyword-Process">Process</span> <span class="token operator">-</span>Force<span class="token punctuation">;</span> <span class="token namespace">[System.Net.ServicePointManager]</span>::SecurityProtocol = <span class="token namespace">[System.Net.ServicePointManager]</span>::SecurityProtocol <span class="token operator">-bor</span> 3072<span class="token punctuation">;</span> <span class="token function">iex</span> <span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token function">New-Object</span> System<span class="token punctuation">.</span>Net<span class="token punctuation">.</span>WebClient<span class="token punctuation">)</span><span class="token punctuation">.</span>DownloadString<span class="token punctuation">(</span><span class="token string">'https://community.chocolatey.org/install.ps1'</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+</code></pre><h3 id="aws-iam-사용자-생성">AWS IAM 사용자 생성 </h3>
+<p><code>https://us-east-1.console.aws.amazon.com/iamv2/home?region=ap-northeast-2#/users</code></p>
+<ul>
+<li><code>사용자 추가</code>
+<ul>
+<li>사용자 세부 정보 설정
+<ul>
+<li>사용자 이름: <code>eksadmin</code></li>
+</ul>
+</li>
+<li>AWS 액세스 유형 선택
+<ul>
+<li>AWS 자격 증명 유형 선택
+<ul>
+<li><code>액세스 키 - 프로그래밍 방식 액세스</code> 선택</li>
+<li><code>암호 - AWS 관리 콘솔 액세스</code> 선택</li>
+</ul>
+</li>
+<li>콘솔 비밀번호: <code>사용자 지정 비밀 번호</code> 선택
+<ul>
+<li><code>&lt;YOUR-PASSWORD&gt;</code></li>
+</ul>
+</li>
+<li>비밀번호 재설정 필요: 체크 해제</li>
+</ul>
+</li>
+<li>권한 설정: <code>기존 정책 직접 연결</code> 선택
+<ul>
+<li><code>AdministratorAccess</code> 선택</li>
+</ul>
+</li>
+<li>태그 추가: <code>없음</code></li>
+<li><code>.csv 다운로드</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="aws-cli-도구-설치">AWS CLI 도구 설치 </h3>
+<p><a href="https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html">https://docs.aws.amazon.com/ko_kr/cli/latest/userguide/getting-started-install.html</a></p>
+<h4 id="macos---homebrew-1">macOS - Homebrew </h4>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>brew <span class="token function">install</span> awscli
+</code></pre><h4 id="windows---chocolatey-1">Windows - Chocolatey </h4>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>choco install awscli
+</code></pre><h3 id="aws-iam-authenticator-도구-설치">aws-iam-authenticator 도구 설치 </h3>
+<p><a href="https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/install-aws-iam-authenticator.html">https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/install-aws-iam-authenticator.html</a></p>
+<h4 id="macos---homebrew-2">macOS - Homebrew </h4>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>brew <span class="token function">install</span> aws-iam-authenticator
+</code></pre><h4 id="windows---chocolatey-2">Windows - Chocolatey </h4>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>choco install aws-iam-authenticator
+</code></pre><h3 id="aws-자격증명-구성">AWS 자격증명 구성 </h3>
+<p>자격증명 구성</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>aws configure
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>AWS Access Key ID <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: ap-northeast-2
+Default output <span class="token function">format</span> <span class="token punctuation">[</span>None<span class="token punctuation">]</span>: json
+</code></pre><p>자격증명 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>aws sts get-caller-identity
+</code></pre><h3 id="eksctl-도구-설치">eksctl 도구 설치 </h3>
+<p><a href="https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/eksctl.html">https://docs.aws.amazon.com/ko_kr/eks/latest/userguide/eksctl.html</a></p>
+<h4 id="macos---homebrew-3">macOS - Homebrew </h4>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>brew <span class="token function">install</span> eksctl
+</code></pre><h4 id="windows---chocolatey-3">Windows - Chocolatey </h4>
+<pre data-role="codeBlock" data-info="powershell" class="language-powershell powershell"><code>choco install eksctl
+</code></pre><h3 id="kubectl-도구-설치">kubectl 도구 설치 </h3>
+<blockquote>
+<p>1.27.X 버전으로 설치</p>
+</blockquote>
+<h4 id="macos">macOS </h4>
+<p><a href="https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-macos/">https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-macos/</a></p>
+<h4 id="windows">Windows </h4>
+<p><a href="https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-windows/">https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-windows/</a></p>
+<h4 id="linux">Linux </h4>
+<p><a href="https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-linux/">https://kubernetes.io/ko/docs/tasks/tools/install-kubectl-linux/</a></p>
+<hr>
+<h2 id="실습-5-2-eks-클러스터-배포">실습 5-2: EKS 클러스터 배포 </h2>
+<h3 id="eksctl로-eks-클러스터-배포">eksctl로 EKS 클러스터 배포 </h3>
+<p>클러스터 배포</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>eksctl create cluster <span class="token parameter variable">--name</span> myeks <span class="token parameter variable">--region</span> ap-northeast-2 --instance-types t3.medium
+</code></pre><blockquote>
+<p>약 15분 소요</p>
+</blockquote>
+<h3 id="aws-ebs-csi-드라이버-애드온-설치">AWS EBS CSI 드라이버 애드온 설치 </h3>
+<blockquote>
+<p>EKS 1.23 부터 EBS CSI 드라이버를 기본 사용</p>
+</blockquote>
+<p>OIDC 연결:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>eksctl utils associate-iam-oidc-provider <span class="token parameter variable">--cluster</span> myeks <span class="token parameter variable">--approve</span>
+</code></pre><p>EBS CSI 애드온 설치:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>eksctl create addon <span class="token parameter variable">--cluster</span> myeks <span class="token parameter variable">--name</span> aws-ebs-csi-driver
+</code></pre><p>EBS CSI 애드온 설치 확인:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>eksctl get addon <span class="token parameter variable">--cluster</span> myeks
+</code></pre><p>EBS CSI 애드온 관련 리소스 확인:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get po <span class="token parameter variable">-n</span> kube-system <span class="token parameter variable">-l</span> app.kubernetes.io/name<span class="token operator">=</span>aws-ebs-csi-driver
+</code></pre><hr>
+<h2 id="실습-5-3-쿠버네티스-오브젝트-확인">실습 5-3: 쿠버네티스 오브젝트 확인 </h2>
+<p>오브젝트 리소스 종류 확인:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl api-resources
+</code></pre><p>오브젝트 버전 확인:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl api-versions
+</code></pre><p>오브젝트 정의 필드 확인:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl explain pod  
+kubectl explain pod.spec  
+kubectl explain pod.spec.containers  
+kubectl explain pod.spec.containers.name  
+kubectl explain pod.spec.containers.image  
+kubectl exaplin pod.spec <span class="token parameter variable">--recursive</span>
+</code></pre><hr>
+<h2 id="실습-5-4-명령형-커멘드를-이용한-웹-서비스-구축">실습 5-4: 명령형 커멘드를 이용한 웹 서비스 구축 </h2>
+<blockquote>
+<p>명령형 커멘드를 이용한 웹 서비스 구축 (1)~(9) 장표 실습</p>
+</blockquote>
+<h3 id="디플로이먼트-리소스-생성">디플로이먼트 리소스 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create deployment myapp <span class="token parameter variable">--image</span><span class="token operator">=</span>ghcr.io/c1t1d0s7/go-myweb:alpine
+</code></pre><h3 id="생성된-리소스-확인">생성된 리소스 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get deploy,rs,po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/myapp   <span class="token number">1</span>/1     <span class="token number">1</span>            <span class="token number">1</span>           2m1s
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/myapp-79877ddf67   <span class="token number">1</span>         <span class="token number">1</span>         <span class="token number">1</span>       2m1s
+
+NAME                         READY   STATUS    RESTARTS   AGE
+pod/myapp-79877ddf67-zmjb4   <span class="token number">1</span>/1     Running   <span class="token number">0</span>          2m1s
+</code></pre><h3 id="클러스터-외부에-노출하기-위한-서비스-리소스-생성">클러스터 외부에 노출하기 위한 서비스 리소스 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl expose deployment myapp <span class="token parameter variable">--name</span> myapp-svc <span class="token parameter variable">--port</span> <span class="token number">80</span> <span class="token parameter variable">--protocol</span> TCP --target-port <span class="token number">8080</span> <span class="token parameter variable">--type</span> LoadBalancer
+</code></pre><h3 id="생성된-서비스-리소스-확인">생성된 서비스 리소스 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get services myapp-svc
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>NAME        TYPE           CLUSTER-IP      EXTERNAL-IP      PORT<span class="token punctuation">(</span>S<span class="token punctuation">)</span>        AGE
+myapp-svc   LoadBalancer   <span class="token number">10.233</span>.19.224   XXXXXXX          <span class="token number">80</span>:31266/TCP   32s
+</code></pre><h3 id="서비스-리소스의-external-ip로-접속">서비스 리소스의 EXTERNAL-IP로 접속 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://XXXXXXX
+
+Hello World<span class="token operator">!</span>
+myapp-79877ddf67-zmjb4
+</code></pre><h3 id="파드-수동-스케일링">파드 수동 스케일링 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl scale deploy myapp <span class="token parameter variable">--replicas</span> <span class="token number">3</span>
+</code></pre><h3 id="스케일링-결과-확인">스케일링 결과 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get deployments,replicasets,pods
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>NAME                    READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/myapp   <span class="token number">3</span>/3     <span class="token number">3</span>            <span class="token number">3</span>           12m
+
+NAME                               DESIRED   CURRENT   READY   AGE
+replicaset.apps/myapp-79877ddf67   <span class="token number">3</span>         <span class="token number">3</span>         <span class="token number">3</span>       12m
+
+NAME                         READY   STATUS    RESTARTS   AGE
+pod/myapp-79877ddf67-br8t2   <span class="token number">1</span>/1     Running   <span class="token number">0</span>          34s
+pod/myapp-79877ddf67-mdh4v   <span class="token number">1</span>/1     Running   <span class="token number">0</span>          34s
+pod/myapp-79877ddf67-zmjb4   <span class="token number">1</span>/1     Running   <span class="token number">0</span>          12m
+</code></pre><h3 id="서비스-리소스의-external-ip로-여러번-접속-시도">서비스 리소스의 EXTERNAL-IP로 여러번 접속 시도 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://XXXXXXX
+</code></pre><pre data-role="codeBlock" data-info="text" class="language-text text"><code>Hello World!
+myapp-79877ddf67-zmjb4
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://XXXXXXX
+</code></pre><pre data-role="codeBlock" data-info="text" class="language-text text"><code>Hello World!
+myapp-79877ddf67-br8t2
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://XXXXXXX
+</code></pre><pre data-role="codeBlock" data-info="text" class="language-text text"><code>Hello World!
+myapp-79877ddf67-zmjb4
+</code></pre><h3 id="특정myapp-79877ddf67-zmjb4-파드-삭제">특정(myapp-79877ddf67-zmjb4) 파드 삭제 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl delete pod myapp-79877ddf67-zmjb4
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>NAME                     READY   STATUS    RESTARTS   AGE
+myapp-79877ddf67-br8t2   <span class="token number">1</span>/1     Running   <span class="token number">0</span>          3m19s
+myapp-79877ddf67-mdh4v   <span class="token number">1</span>/1     Running   <span class="token number">0</span>          3m19s
+myapp-79877ddf67-xtpf7   <span class="token number">1</span>/1     Running   <span class="token number">0</span>          12s
+</code></pre><p><code>xtpf7</code> 파드가 새롭게 생성됨</p>
+<h3 id="디플로이먼트-및-서비스-리소스-삭제">디플로이먼트 및 서비스 리소스 삭제 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl delete deployments myapp
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl delete svc myapp-svc
+</code></pre><hr>
+<h2 id="실습-5-5-파드-리소스-생성-및-주요-명령-확인">실습 5-5: 파드 리소스 생성 및 주요 명령 확인 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ~/kube-object <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/kube-object
+</code></pre><h3 id="파드-오브젝트-작성">파드 오브젝트 작성 </h3>
+<p><code>pod.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Pod
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>pod
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp
+    <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/c1t1d0s7/go<span class="token punctuation">-</span>myweb<span class="token punctuation">:</span>alpine
+    <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+      <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+</code></pre><h3 id="파드-생성">파드 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> pod.yaml
+</code></pre><h3 id="파드-확인-상세-정보-확인-로그-확인">파드 확인, 상세 정보 확인, 로그 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl describe po myapp-pod
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl logs myapp-pod
+</code></pre><h3 id="파드-포트-포워드-및-웹-접속-확인">파드 포트 포워드 및 웹 접속 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl port-forward myapp-pod <span class="token number">8080</span>:8080
+</code></pre><p>다른 터미널/파워쉘 실행</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://localhost:8080
+</code></pre><h3 id="파드-삭제">파드 삭제 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl delete <span class="token parameter variable">-f</span> pod.yaml
+</code></pre><hr>
+<h2 id="실습-5-6-레플리카셋-오브젝트-리소스-생성-및-스케일링">실습 5-6: 레플리카셋 오브젝트 리소스 생성 및 스케일링 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> ~/kube-object
+</code></pre><h3 id="레플리카셋-오브젝트-작성">레플리카셋 오브젝트 작성 </h3>
+<p><code>rs.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ReplicaSet
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/c1t1d0s7/go<span class="token punctuation">-</span>myweb<span class="token punctuation">:</span>alpine
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+</code></pre><h3 id="레플리카셋-생성">레플리카셋 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> rs.yaml
+</code></pre><h3 id="레플리카셋-확인-상세-정보-확인">레플리카셋 확인, 상세 정보 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get rs,po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl describe rs myapp-rs
+</code></pre><h3 id="레플리카셋-스케일링">레플리카셋 스케일링 </h3>
+<p><code>rs.yaml</code> 파일 수정</p>
+<pre data-role="codeBlock" data-info="yaml" class="language-yaml yaml"><code><span class="token punctuation">...</span>
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">3</span>
+<span class="token punctuation">...</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl apply <span class="token parameter variable">-f</span> rs.yaml
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get rs,po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl edit rs myapp-rs
+</code></pre><p>3 &gt; 2 개로 변경</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get rs,po
+</code></pre><h3 id="레플리카셋-삭제">레플리카셋 삭제 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl delete <span class="token parameter variable">-f</span> rs.yaml
+</code></pre><hr>
+<h2 id="실습-5-7-디플로이먼트-오브젝트-생성-및-업데이트">실습 5-7: 디플로이먼트 오브젝트 생성 및 업데이트 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> ~/kube-object
+</code></pre><h3 id="디플로이먼트-오브젝트-작성">디플로이먼트 오브젝트 작성 </h3>
+<p><code>deploy.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>deploy
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>deploy
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>deploy
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/c1t1d0s7/go<span class="token punctuation">-</span>myweb<span class="token punctuation">:</span>v1.0
+        <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+</code></pre><h3 id="디플로이먼트-생성">디플로이먼트 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> deploy.yaml
+</code></pre><h3 id="디플로이먼트-확인-상세-정보-확인-업데이트-히스토리">디플로이먼트 확인, 상세 정보 확인, 업데이트 히스토리 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get deploy,rs,po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl describe deploy myapp-deploy
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl rollout <span class="token function">history</span> deploy myapp-deploy
+</code></pre><h3 id="디플로이먼트-업데이트-및-롤백태그-v10-v20-v30-v40">디플로이먼트 업데이트 및 롤백(태그: <code>v1.0</code>, <code>v2.0</code>, <code>v3.0</code>, <code>v4.0</code>) </h3>
+<h4 id="v10---v20">v1.0 -&gt; v2.0 </h4>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl <span class="token builtin class-name">set</span> image deploy myapp-deploy <span class="token assign-left variable">myapp</span><span class="token operator">=</span>ghcr.io/c1t1d0s7/go-myweb:v2.0
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get deploy,rs,po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl rollout <span class="token function">history</span> deploy myapp-deploy
+</code></pre><h4 id="v20---v30">v2.0 -&gt; v3.0 </h4>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl edit deploy myapp-deploy
+</code></pre><pre data-role="codeBlock" data-info="yaml" class="language-yaml yaml"><code><span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token punctuation">...</span>
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token punctuation">...</span>
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/c1t1d0s7/go<span class="token punctuation">-</span>myweb<span class="token punctuation">:</span>v3.0
+    <span class="token punctuation">...</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get deploy,rs,po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl rollout <span class="token function">history</span> deploy myapp-deploy
+</code></pre><h4 id="v30---v40">v3.0 -&gt; v4.0 </h4>
+<p><code>deploy.yaml</code> 파일 수정</p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token punctuation">...</span>
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token punctuation">...</span>
+  <span class="token key atrule">annotations</span><span class="token punctuation">:</span>
+    <span class="token key atrule">kubernetes.io/change-cause</span><span class="token punctuation">:</span> from v3.0 to v4.0
+  <span class="token punctuation">...</span>
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token punctuation">...</span>
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token punctuation">...</span>
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/c1t1d0s7/go<span class="token punctuation">-</span>myweb<span class="token punctuation">:</span>v4.0
+    <span class="token punctuation">...</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl apply <span class="token parameter variable">-f</span> deploy.yaml
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get deploy,rs,po
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl rollout <span class="token function">history</span> deploy myapp-deploy
+</code></pre><h4 id="v40---v30-롤백">v4.0 -&gt; v3.0 롤백 </h4>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl rollout undo deploy myapp-deploy --to-revision<span class="token operator">=</span>X
+</code></pre><blockquote>
+<p>디플로이먼트는 삭제하지 않고 다음 <code>실습 5-8</code>에서 계속 사용, 태그는 상관 없음</p>
+</blockquote>
+<hr>
+<h2 id="실습-5-8-서비스-생성-확인">실습 5-8: 서비스 생성, 확인 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> ~/kube-object
+</code></pre><h3 id="디플로이먼트가-없다면-생성">디플로이먼트가 없다면 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> deploy.yaml
+</code></pre><h3 id="clusterip-서비스-생성-및-확인">ClusterIP 서비스 생성 및 확인 </h3>
+<p><code>svc.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>svc
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>deploy
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+    <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+</code></pre><p>서비스 생성</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> svc.yaml
+</code></pre><p>서비스 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get svc myapp-svc
+</code></pre><p>클라이언트 파드 생성</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl run myclient <span class="token parameter variable">--image</span> ghcr.io/c1t1d0s7/network-multitool <span class="token parameter variable">-it</span> <span class="token parameter variable">--rm</span>
+</code></pre><p>DNS 레코드 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">host</span> <span class="token parameter variable">-t</span> A myapp-svc
+
+myapp-svc.default.svc.cluster.local has address <span class="token number">10.100</span>.147.130
+</code></pre><p>서비스 접속 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> myapp-svc.default.svc.cluster.local
+
+<span class="token operator">==</span><span class="token operator">=</span>Version <span class="token assign-left variable">3.0</span><span class="token operator">==</span><span class="token operator">=</span>
+Hello World<span class="token operator">!</span>
+myapp-deploy-6db6b9d896-xd2d6
+</code></pre><p>종료</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">exit</span>
+</code></pre><h3 id="nodeport-서비스-생성-및-확인">NodePort 서비스 생성 및 확인 </h3>
+<p><code>svc-np.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>svc<span class="token punctuation">-</span>np
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> NodePort
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>deploy
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+    <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+    <span class="token key atrule">nodePort</span><span class="token punctuation">:</span> <span class="token number">30007</span>
+</code></pre><p>서비스 생성</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> svc-np.yaml
+</code></pre><p>서비스 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get svc myapp-svc-np
+</code></pre><blockquote>
+<p>EC2 인스턴스의 보안 그룹에서 TCP 30000-32767 포트가 허용되어 있어야 함<br>
+보안 그룹 이름: <code>eks-cluster-sg-&lt;CLUSTER_NAME&gt;-&lt;RANDOM&gt;</code></p>
+</blockquote>
+<p>노드 IP 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get nodes <span class="token parameter variable">-o</span> wide
+</code></pre><p>접속 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://X.X.X.X:30007
+</code></pre><pre data-role="codeBlock" data-info="text" class="language-text text"><code>===Version 3.0===
+Hello World!
+myapp-deploy-6db6b9d896-7qfdr
+</code></pre><h3 id="loadbalancer-서비스-생성-및-확인">LoadBalancer 서비스 생성 및 확인 </h3>
+<p><code>svc-lb.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>svc<span class="token punctuation">-</span>lb
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>deploy
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+    <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+</code></pre><p>서비스 생성</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> svc-lb.yaml
+</code></pre><p>서비스 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get svc myapp-svc-lb
+</code></pre><p>서비스 접속 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://XXX.ap-northeast-2.elb.amazonaws.com
+
+<span class="token operator">==</span><span class="token operator">=</span>Version <span class="token assign-left variable">3.0</span><span class="token operator">==</span><span class="token operator">=</span>
+Hello World<span class="token operator">!</span>
+myapp-deploy-6db6b9d896-xd2d6
+</code></pre><h3 id="리소스-정리">리소스 정리 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl delete <span class="token parameter variable">-f</span> deploy.yaml <span class="token parameter variable">-f</span> svc.yaml <span class="token parameter variable">-f</span> svc-np.yaml <span class="token parameter variable">-f</span> svc-lb.yaml
+</code></pre><hr>
+<h2 id="실습-5-9-emptydir-볼륨을-사용하는-파드">실습 5-9: emptyDir 볼륨을 사용하는 파드 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> ~/kube-object
+</code></pre><h3 id="emptydir-볼륨을-사용하는-레플리카셋-오브젝트-작성">emptyDir 볼륨을 사용하는 레플리카셋 오브젝트 작성 </h3>
+<p><code>rs-emptydir.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ReplicaSet
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs<span class="token punctuation">-</span>fortune
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs<span class="token punctuation">-</span>fortune
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs<span class="token punctuation">-</span>fortune
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> web<span class="token punctuation">-</span>server
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> nginx<span class="token punctuation">:</span>alpine
+        <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> web<span class="token punctuation">-</span>fortune
+          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /usr/share/nginx/html
+          <span class="token key atrule">readOnly</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> html<span class="token punctuation">-</span>generator
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/c1t1d0s7/fortune
+        <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> web<span class="token punctuation">-</span>fortune
+          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /var/htdocs
+      <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> web<span class="token punctuation">-</span>fortune
+        <span class="token key atrule">emptyDir</span><span class="token punctuation">:</span> <span class="token punctuation">{</span><span class="token punctuation">}</span>
+</code></pre><p><code>svc-empty.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>svc<span class="token punctuation">-</span>fortune
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+    <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">80</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs<span class="token punctuation">-</span>fortune
+</code></pre><h3 id="리소스-생성">리소스 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> rs-empty.yaml <span class="token parameter variable">-f</span> svc-empty.yaml
+</code></pre><h3 id="리소스-확인">리소스 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get rs,po,svc
+</code></pre><h3 id="파드-리소스-상세-확인">파드 리소스 상세 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl describe po myapp-rs-fortune-XXXXX
+</code></pre><h3 id="서비스-확인">서비스 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get svc myapp-svc-fortune
+</code></pre><p>서비스 접속 확인(3초 간격)</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">curl</span> http://XXX.ap-northeast-2.elb.amazonaws.com
+<span class="token function">curl</span> http://XXX.ap-northeast-2.elb.amazonaws.com
+<span class="token function">curl</span> http://XXX.ap-northeast-2.elb.amazonaws.com
+</code></pre><h3 id="리소스-정리-1">리소스 정리 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl delete <span class="token parameter variable">-f</span> rs-empty.yaml <span class="token parameter variable">-f</span> svc-empty.yaml
+</code></pre><hr>
+<h2 id="실습-5-10-동적-볼륨-프로비저닝">실습 5-10: 동적 볼륨 프로비저닝 </h2>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token builtin class-name">cd</span> ~/kube-object
+</code></pre><h3 id="스토리지-클래스-확인">스토리지 클래스 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get sc gp2
+</code></pre><h3 id="pvc-리소스-생성">PVC 리소스 생성 </h3>
+<p><code>pvc.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> PersistentVolumeClaim
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>pvc<span class="token punctuation">-</span>dynamic
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">accessModes</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> ReadWriteOnce
+  <span class="token key atrule">resources</span><span class="token punctuation">:</span>
+    <span class="token key atrule">requests</span><span class="token punctuation">:</span>
+      <span class="token key atrule">storage</span><span class="token punctuation">:</span> 1Gi
+  <span class="token key atrule">storageClassName</span><span class="token punctuation">:</span> gp2
+</code></pre><p><code>rs-pvc.yaml</code></p>
+<pre data-role="codeBlock" data-info="yaml" class="language-yaml yaml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> ReplicaSet
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs<span class="token punctuation">-</span>dynamic
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs<span class="token punctuation">-</span>dynamic
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>rs<span class="token punctuation">-</span>dynamic
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> myapp
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> ghcr.io/c1t1d0s7/go<span class="token punctuation">-</span>myweb<span class="token punctuation">:</span>alpine
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+        <span class="token key atrule">volumeMounts</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> pvc<span class="token punctuation">-</span>volume
+          <span class="token key atrule">mountPath</span><span class="token punctuation">:</span> /mydata
+      <span class="token key atrule">volumes</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> pvc<span class="token punctuation">-</span>volume
+        <span class="token key atrule">persistentVolumeClaim</span><span class="token punctuation">:</span>
+          <span class="token key atrule">claimName</span><span class="token punctuation">:</span> myapp<span class="token punctuation">-</span>pvc<span class="token punctuation">-</span>dynamic
+</code></pre><h3 id="리소스-생성-1">리소스 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create <span class="token parameter variable">-f</span> pvc.yaml <span class="token parameter variable">-f</span> rs-pvc.yaml
+</code></pre><h3 id="리소스-확인-1">리소스 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get rs,po,pvc,pv
+</code></pre><h3 id="파드-리소스-상세-확인-1">파드 리소스 상세 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl describe po myapp-rs-dynamic-XXXXX
+</code></pre><h3 id="리소스-정리-2">리소스 정리 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl delete <span class="token parameter variable">-f</span> pvc.yaml <span class="token parameter variable">-f</span> rs-pvc.yaml
+</code></pre><hr>
+<h2 id="실습-5-11-bitnamimysql-차트-설치-및-업그레이드">실습 5-11: bitnami/mysql 차트 설치 및 업그레이드 </h2>
+<h3 id="helm-명령-설치">helm 명령 설치 </h3>
+<p><a href="https://helm.sh/docs/intro/install/">https://helm.sh/docs/intro/install/</a></p>
+<h3 id="bitnami-저장소-추가">bitnami 저장소 추가 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo <span class="token function">add</span> bitnami https://charts.bitnami.com/bitnami
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo update
+</code></pre><h3 id="mysql-차트-설치">mysql 차트 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm search repo bitnami/mysql
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm <span class="token function">install</span> mydb bitnami/mysql
+</code></pre><h3 id="릴리스-업그레이드">릴리스 업그레이드 </h3>
+<p><code>mysql-custom.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">primary</span><span class="token punctuation">:</span>
+  <span class="token key atrule">service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm upgrade mydb bitnami/mysql <span class="token parameter variable">-f</span> mysql-custom.yaml
+</code></pre><h3 id="릴리스-롤백">릴리스 롤백 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm <span class="token function">history</span> mydb
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm rollback mydb <span class="token number">1</span>
+</code></pre><h3 id="릴리스-삭제">릴리스 삭제 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm uninstall mydb
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get pvc
+kubectl delete pvc data-mydb-mysql-0
+</code></pre><blockquote>
+<p>PVC 볼륨은 같이 삭제되지 않음</p>
+</blockquote>
+<hr>
+<h2 id="실습-5-12-쿠버네티스에-헬름으로-젠킨스-설치">실습 5-12: 쿠버네티스에 헬름으로 젠킨스 설치 </h2>
+<h3 id="네임스페이스-생성">네임스페이스 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create namespace jenkins
+</code></pre><h3 id="헬름-차트-저장소-추가">헬름 차트 저장소 추가 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo <span class="token function">add</span> jenkinsci https://charts.jenkins.io
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo update
+</code></pre><h3 id="헬름-차트-사용자화-파일-생성">헬름 차트 사용자화 파일 생성 </h3>
+<p><code>jenkins-values.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">controller</span><span class="token punctuation">:</span>
+  <span class="token key atrule">tag</span><span class="token punctuation">:</span> <span class="token string">"lts-jdk11"</span>
+  <span class="token key atrule">serviceType</span><span class="token punctuation">:</span> LoadBalancer
+  <span class="token key atrule">installPlugins</span><span class="token punctuation">:</span>
+  <span class="token punctuation">-</span> kubernetes
+  <span class="token punctuation">-</span> workflow<span class="token punctuation">-</span>aggregator
+  <span class="token punctuation">-</span> git
+  <span class="token punctuation">-</span> configuration<span class="token punctuation">-</span>as<span class="token punctuation">-</span>code
+  <span class="token punctuation">-</span> pipeline<span class="token punctuation">-</span>stage<span class="token punctuation">-</span>view
+  <span class="token key atrule">adminPassword</span><span class="token punctuation">:</span> <span class="token string">"P@ssw0rd"</span>
+
+<span class="token key atrule">persistence</span><span class="token punctuation">:</span>
+  <span class="token key atrule">storageClass</span><span class="token punctuation">:</span> <span class="token string">"gp2"</span>
+</code></pre><h3 id="젠킨스-설치">젠킨스 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm <span class="token function">install</span> jenkins jenkinsci/jenkins <span class="token parameter variable">-n</span> jenkins <span class="token parameter variable">-f</span> jenkins-values.yaml
+</code></pre><h3 id="젠킨스-접속">젠킨스 접속 </h3>
+<p>서비스 주소 확인</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get svc <span class="token parameter variable">-n</span> jenkins jenkins
+</code></pre><p>웹 브라우저:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://XXX.ap-northeast-2.elb.amazonaws.com:8080
+</code></pre><hr>
+<h2 id="실습-5-13-젠킨스-테스트-파이프라인-생성">실습 5-13: 젠킨스 테스트 파이프라인 생성 </h2>
+<p><code>Dashboard &gt; 새로운 Item</code></p>
+<ul>
+<li>아이템 이름: <code>kube_test_pipeline</code></li>
+<li><code>Pipeline</code> 선택 &gt; <code>OK</code>
+<ul>
+<li>Pipeline
+<ul>
+<li>Definition: <code>Pipeline script</code>
+<ul>
+<li>Script: <code>Declarative (Kubernetes)</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>저장</code></li>
+</ul>
+</li>
+<li><code>지금 빌드</code></li>
+<li>Build History: <code>#1</code> &gt; <code>Console Output</code> 확인</li>
+<li>작업공간 확인</li>
+</ul>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code><span class="token comment">// Uses Declarative syntax to run commands inside a container.</span>
+pipeline <span class="token punctuation">{</span>
+    agent <span class="token punctuation">{</span>
+        kubernetes <span class="token punctuation">{</span>
+            yaml <span class="token string">'''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: shell
+    image: ubuntu
+    command:
+    - sleep
+    args:
+    - infinity
+'''</span>
+            defaultContainer <span class="token string">'shell'</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    stages <span class="token punctuation">{</span>
+        <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Main'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            steps <span class="token punctuation">{</span>
+                sh <span class="token string">'hostname'</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><hr>
+<h2 id="실습-5-14-kaniko를-이용한-파이프라인-구성">실습 5-14: kaniko를 이용한 파이프라인 구성 </h2>
+<h3 id="작업-생성-4">작업 생성 </h3>
+<p><code>Dashboard &gt; 새로운 Item</code></p>
+<ul>
+<li>아이템 이름: <code>kube_pipeline</code></li>
+<li><code>Pipeline</code> 선택 &gt; <code>OK</code>
+<ul>
+<li>Pipeline
+<ul>
+<li>Definition: <code>Pipeline script from SCM</code>
+<ul>
+<li>SCM: <code>Git</code>
+<ul>
+<li>Repository URL: <code>&lt;YOUR_REPOSITORY&gt;</code></li>
+<li>Branch Scpecifier: <code>*/main</code></li>
+</ul>
+</li>
+<li>Script Path: <code>Jenkinsfile-kubernetes</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>저장</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="jenkinsfile-생성-1">Jenkinsfile 생성 </h3>
+<p>진행할 작업:</p>
+<ol>
+<li>Git 저장소 가져오기</li>
+<li>Maven 빌드</li>
+<li>Maven 테스트</li>
+<li>kaniko 이미지 빌드/푸시
+<ul>
+<li>kaniko 컨테이너가 도커 허브 레지스트리에 이미지를 푸시하기 위한 시크릿 필요</li>
+</ul>
+</li>
+</ol>
+<p><code>Jenkinsfile-kubernetes</code></p>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>pipeline <span class="token punctuation">{</span>
+  agent <span class="token punctuation">{</span>
+    kubernetes <span class="token punctuation">{</span>
+      yaml <span class="token string">'''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: maven
+    image: maven:3-openjdk-11
+    command:
+    - sleep
+    args:
+    - infinity
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    command:
+    - sleep
+    args:
+    - infinity
+    volumeMounts:
+    - name: registry-credentials
+      mountPath: /kaniko/.docker
+  volumes:
+  - name: registry-credentials
+    secret:
+      secretName: regcred
+      items:
+      - key: .dockerconfigjson
+        path: config.json
+'''</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  stages <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Checkout'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'maven'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          git branch<span class="token punctuation">:</span> <span class="token string">'main'</span><span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token string">'&lt;URL&gt;'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'maven'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          sh <span class="token string">'mvn clean package -DskipTests=true'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'maven'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          sh <span class="token string">'mvn test'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build &amp; Tag &amp; Push Docker Image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'kaniko'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          sh <span class="token string">'executor --context=dir://$WORKSPACE --destination=&lt;IMAGE&gt;:$BUILD_NUMBER --destination=&lt;IMAGE&gt;:latest'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="도커-허브-액세스-토큰-생성-1">도커 허브 액세스 토큰 생성 </h3>
+<p><a href="https://hub.docker.com">https://hub.docker.com</a> 로그인</p>
+<ul>
+<li>우측 상단 계정 선택</li>
+<li>Account Settings
+<ul>
+<li>Security
+<ul>
+<li><code>New Access Token</code>
+<ul>
+<li>Acess Token Description: <code>for jenkins with kubernetes</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>토큰 복사</li>
+</ul>
+<h3 id="도커-허브-레지스트리에-이미지를-푸시하기-위한-시크릿-생성">도커 허브 레지스트리에 이미지를 푸시하기 위한 시크릿 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create secret docker-registry regcred <span class="token parameter variable">-n</span> jenkins --docker-server<span class="token operator">=</span>https://index.docker.io/v1/ --docker-username<span class="token operator">=</span><span class="token operator">&lt;</span>DOCKER_HUB_ACCOUNR<span class="token operator">&gt;</span> --docker-password<span class="token operator">=</span><span class="token operator">&lt;</span>DOCKER_HUB_TOKEN<span class="token operator">&gt;</span>
+</code></pre><h3 id="jenkinsfile-푸시">Jenkinsfile 푸시 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token operator">&lt;</span>MESSAGE<span class="token operator">&gt;</span>
+<span class="token function">git</span> push
+</code></pre><h3 id="작업-실행-및-확인">작업 실행 및 확인 </h3>
+<p><code>Dashboard &gt; kube_pipeline</code></p>
+<ul>
+<li><code>지금 빌드</code></li>
+</ul>
+<hr>
+<h2 id="실습-5-15-argo-cd-설치">실습 5-15: Argo CD 설치 </h2>
+<p><a href="https://argo-cd.readthedocs.io/en/stable/getting_started/">https://argo-cd.readthedocs.io/en/stable/getting_started/</a></p>
+<h3 id="argocd-네임스페이스-생성">argocd 네임스페이스 생성 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create namespace argocd
+</code></pre><h3 id="argo-cd-설치">Argo CD 설치 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl apply <span class="token parameter variable">-n</span> argocd <span class="token parameter variable">-f</span> https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+</code></pre><h3 id="서비스-타입-변경">서비스 타입 변경 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl patch svc argocd-server <span class="token parameter variable">-n</span> argocd <span class="token parameter variable">-p</span> <span class="token string">'{"spec": {"type": "LoadBalancer"}}'</span>
+</code></pre><blockquote>
+<p>Windows Powershell<br>
+<code>'{\"spec\": {\"type\": \"LoadBalancer\"}}'</code></p>
+</blockquote>
+<h3 id="접속-주소-확인">접속 주소 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get svc argocd-server <span class="token parameter variable">-n</span> argocd
+</code></pre><h3 id="초기-패스워드-확인">초기 패스워드 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl <span class="token parameter variable">-n</span> argocd get secret argocd-initial-admin-secret <span class="token parameter variable">-o</span> <span class="token assign-left variable">jsonpath</span><span class="token operator">=</span><span class="token string">"{.data.password}"</span> <span class="token operator">|</span> base64 -d<span class="token punctuation">;</span> <span class="token builtin class-name">echo</span>
+</code></pre><p>웹 브라우저:</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>http://XXX
+</code></pre><p>Username: admin<br>
+Password: XXX</p>
+<blockquote>
+<p>자체 서명 인증서를 사용하기 때문에 인증서 오류 발생</p>
+</blockquote>
+<hr>
+<h2 id="실습-5-16-argo-cd-샘플-애플리케이션-배포">실습 5-16: Argo CD 샘플 애플리케이션 배포 </h2>
+<p><a href="https://argo-cd.readthedocs.io/en/stable/getting_started/#creating-apps-via-ui">https://argo-cd.readthedocs.io/en/stable/getting_started/#creating-apps-via-ui</a></p>
+<ul>
+<li>Git 저장소: <a href="https://github.com/argoproj/argocd-example-apps.git">https://github.com/argoproj/argocd-example-apps.git</a></li>
+<li>경로: guestbook</li>
+</ul>
+<h3 id="argo-cd-로그인">Argo CD 로그인 </h3>
+<h3 id="애플리케이션-생성">애플리케이션 생성 </h3>
+<p><code>Applications &gt; + NEW APP</code></p>
+<ul>
+<li>GENERAL
+<ul>
+<li>Application Name: <code>guestbook</code></li>
+<li>Project: <code>default</code></li>
+<li>SYNC POLICY: <code>Automatic</code></li>
+</ul>
+</li>
+<li>SOURCE
+<ul>
+<li>Repository URL: <code>https://github.com/argoproj/argocd-example-apps.git</code></li>
+<li>Path: <code>guestbook</code></li>
+</ul>
+</li>
+<li>DESTINATION
+<ul>
+<li>Cluster URL: <code>https://kubernetes.default.svc</code></li>
+<li>Namespace: <code>default</code></li>
+</ul>
+</li>
+<li><code>CREATE</code></li>
+</ul>
+<h3 id="애플리케이션-확인">애플리케이션 확인 </h3>
+<p><code>argocd/guestbook</code> 선택</p>
+<h3 id="쿠버네티스-오브젝트-확인">쿠버네티스 오브젝트 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get all
+</code></pre><hr>
+<h2 id="실습-5-17-argo-cd를-위한-git-저장소-생성">실습 5-17: Argo CD를 위한 Git 저장소 생성 </h2>
+<p>소스 빌드 및 컨테이너 이미지로 빌드한 이미지를 사용하는 오브젝트 생성</p>
+<ul>
+<li>디플로이먼트</li>
+<li>서비스</li>
+</ul>
+<h3 id="github-저장소-생성-및-소스-푸시">GitHub 저장소 생성 및 소스 푸시 </h3>
+<p><a href="https://github.com/">https://github.com/</a> 로그인</p>
+<p><code>New</code> &gt; 새로운 저장소 생성</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">mkdir</span> ~/<span class="token operator">&lt;</span>DIRECTORY<span class="token operator">&gt;</span> <span class="token operator">&amp;&amp;</span> <span class="token builtin class-name">cd</span> ~/<span class="token operator">&lt;</span>DIRECTORY<span class="token operator">&gt;</span>
+</code></pre><h3 id="오브젝트-생성">오브젝트 생성 </h3>
+<p><code>deployment.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> apps/v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Deployment
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world<span class="token punctuation">-</span>deploy
+  <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicas</span><span class="token punctuation">:</span> <span class="token number">2</span>
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">matchLabels</span><span class="token punctuation">:</span>
+      <span class="token key atrule">app</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world
+  <span class="token key atrule">template</span><span class="token punctuation">:</span>
+    <span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+      <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+        <span class="token key atrule">app</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world
+    <span class="token key atrule">spec</span><span class="token punctuation">:</span>
+      <span class="token key atrule">containers</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">name</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world
+        <span class="token key atrule">image</span><span class="token punctuation">:</span> &lt;IMAGE<span class="token punctuation">&gt;</span>
+        <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> <span class="token key atrule">containerPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+</code></pre><p><code>service.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">apiVersion</span><span class="token punctuation">:</span> v1
+<span class="token key atrule">kind</span><span class="token punctuation">:</span> Service
+<span class="token key atrule">metadata</span><span class="token punctuation">:</span>
+  <span class="token key atrule">name</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world<span class="token punctuation">-</span>svc
+<span class="token key atrule">spec</span><span class="token punctuation">:</span>
+  <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+  <span class="token key atrule">selector</span><span class="token punctuation">:</span>
+    <span class="token key atrule">app</span><span class="token punctuation">:</span> hello<span class="token punctuation">-</span>world
+  <span class="token key atrule">ports</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">protocol</span><span class="token punctuation">:</span> TCP
+      <span class="token key atrule">port</span><span class="token punctuation">:</span> <span class="token number">80</span>
+      <span class="token key atrule">targetPort</span><span class="token punctuation">:</span> <span class="token number">8080</span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> init
+<span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token operator">&lt;</span>MESSAGE<span class="token operator">&gt;</span>
+<span class="token function">git</span> branch <span class="token parameter variable">-M</span> main
+<span class="token function">git</span> remote <span class="token function">add</span> origin <span class="token operator">&lt;</span>URL<span class="token operator">&gt;</span>
+<span class="token function">git</span> push <span class="token parameter variable">-u</span> origin main
+</code></pre><hr>
+<h2 id="실습-5-18-argo-cd를-위한-파이프라인-개선">실습 5-18: Argo CD를 위한 파이프라인 개선 </h2>
+<p><code>실습 5-12: kaniko를 이용한 파이프라인 구성</code> 실습 파이프라인 개선</p>
+<p>진행할 작업:</p>
+<ol>
+<li>Git 저장소 가져오기</li>
+<li>Maven 빌드</li>
+<li>Maven 테스트</li>
+<li>kaniko 이미지 빌드/푸시</li>
+<li><strong>쿠버네티스 오브젝트 수정(태그 수정) 및 GitHub 저장소 푸시</strong></li>
+</ol>
+<p><code>Jenkinsfile-kubernetes</code></p>
+<pre data-role="codeBlock" data-info="groovy" class="language-groovy groovy"><code>pipeline <span class="token punctuation">{</span>
+  agent <span class="token punctuation">{</span>
+    kubernetes <span class="token punctuation">{</span>
+      yaml <span class="token string">'''
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: maven
+    image: maven:3-openjdk-11
+    command:
+    - sleep
+    args:
+    - infinity
+  - name: git
+    image: alpine/git
+    command:
+    - sleep
+    args:
+    - infinity
+  - name: kaniko
+    image: gcr.io/kaniko-project/executor:debug
+    command:
+    - sleep
+    args:
+    - infinity
+    volumeMounts:
+    - name: registry-credentials
+      mountPath: /kaniko/.docker
+  volumes:
+  - name: registry-credentials
+    secret:
+      secretName: regcred
+      items:
+      - key: .dockerconfigjson
+        path: config.json
+'''</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+  stages <span class="token punctuation">{</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Checkout'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'maven'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          git branch<span class="token punctuation">:</span> <span class="token string">'main'</span><span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token string">'&lt;URL&gt;'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'maven'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          sh <span class="token string">'mvn clean package -DskipTests=true'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Test'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'maven'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          sh <span class="token string">'mvn test'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Build &amp; Tag &amp; Push Docker Image'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'kaniko'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          sh <span class="token string">'executor --context=dir:///home/jenkins/agent/workspace/kube_pipeline/ --destination=&lt;IMAGE&gt;:$BUILD_NUMBER --destination=&lt;IMAGE&gt;:latest'</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+    <span class="token function">stage</span><span class="token punctuation">(</span><span class="token string">'Update K8s Manifests &amp; Push'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+      environment <span class="token punctuation">{</span>
+        githubUser <span class="token operator">=</span> <span class="token string">'&lt;GITHUB_YOURNAME&gt;'</span> <span class="token comment">//Ryan Jang</span>
+        githubEmail <span class="token operator">=</span> <span class="token string">'&lt;GITHUB_EMAIL&gt;'</span> <span class="token comment">//c1t1d0s7@example.com</span>
+        githubId <span class="token operator">=</span> <span class="token string">'&lt;GITHUB_USERNAME&gt;'</span> <span class="token comment">//c1t1d0s7 </span>
+        githubRepo <span class="token operator">=</span> <span class="token string">'&lt;GITHUB_REPO_NAME&gt;'</span> <span class="token comment">//jenkins-kube-deploy</span>
+        githubURL <span class="token operator">=</span> <span class="token interpolation-string"><span class="token string">"https://github.com/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">githubId</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">/</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">githubRepo</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">.git"</span></span>
+        dockerhubId <span class="token operator">=</span> <span class="token string">'&lt;DOCKER_HUB_USERNAME&gt;'</span> <span class="token comment">//c1t1d0s7</span>
+        dockerhubRepo <span class="token operator">=</span> <span class="token string">'&lt;DOCKER_HUB_REPO_NAME&gt;'</span> <span class="token comment">//hello-world</span>
+      <span class="token punctuation">}</span>
+      steps <span class="token punctuation">{</span>
+        <span class="token function">container</span><span class="token punctuation">(</span><span class="token string">'git'</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+          git branch<span class="token punctuation">:</span> <span class="token string">'main'</span><span class="token punctuation">,</span> credentialsId<span class="token punctuation">:</span> <span class="token string">'github-credential'</span><span class="token punctuation">,</span> url<span class="token punctuation">:</span> <span class="token interpolation-string"><span class="token string">"</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">githubURL</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span></span>
+          sh <span class="token interpolation-string"><span class="token string">"git config --global --add safe.directory </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">workspace</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span></span>
+          sh <span class="token interpolation-string"><span class="token string">"git config --global user.name </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">githubUser</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span></span>
+          sh <span class="token interpolation-string"><span class="token string">"git config --global user.email </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token expression">githubEmail</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">"</span></span>
+          sh <span class="token string">'sed -i "s/image:.*/image: ${dockerhubId}\\/${dockerhubRepo}:${BUILD_NUMBER}/g" deployment.yaml'</span>
+          sh <span class="token string">'git add deployment.yaml'</span>
+          sh <span class="token string">'git commit -m "Jenkins Build Number - ${BUILD_NUMBER}"'</span>
+          <span class="token function">withCredentials</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token function">gitUsernamePassword</span><span class="token punctuation">(</span>credentialsId<span class="token punctuation">:</span> <span class="token string">'github-credential'</span><span class="token punctuation">,</span> gitToolName<span class="token punctuation">:</span> <span class="token string">'Default'</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            sh <span class="token string">'git push --set-upstream origin main'</span>
+          <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre><h3 id="github-푸시를-위한-인증-토큰-생성">Github 푸시를 위한 인증 토큰 생성 </h3>
+<p><code>Github 사이트 &gt; 우측 상단 계정 아이콘 &gt; Settings &gt; Developer settings</code></p>
+<p>또는 <a href="https://github.com/settings/apps">https://github.com/settings/apps</a></p>
+<p><code>Personal access tokens &gt; Generate new token &gt; Generate new token (classic)</code></p>
+<ul>
+<li>Note: <code>Kubernetes Deploy for Argo CD</code></li>
+<li>Expiration: 적절하게 선택</li>
+<li>Select scopes
+<ul>
+<li><code>repo</code> 체크</li>
+</ul>
+</li>
+<li><code>Generate token</code></li>
+</ul>
+<p>토큰 복사</p>
+<h3 id="젠킨스-자격증명-생성">젠킨스 자격증명 생성 </h3>
+<p><code>Dashboard &gt; Jenkins 관리 &gt; Manage Credentials &gt; (global) &gt; Add Credentials</code></p>
+<ul>
+<li>Kind: <code>Username with password</code>
+<ul>
+<li>Username: <code>&lt;GITHUB_USERNAME&gt;</code></li>
+<li>Password: <code>&lt;GITHUB_TOKEN&gt;</code></li>
+<li>ID: <code>github-credential</code></li>
+</ul>
+</li>
+<li><code>Create</code></li>
+</ul>
+<h3 id="jenkinsfile-푸시-1">Jenkinsfile 푸시 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token operator">&lt;</span>MESSAGE<span class="token operator">&gt;</span>
+<span class="token function">git</span> push
+</code></pre><h3 id="작업-실행-및-확인-1">작업 실행 및 확인 </h3>
+<p><code>Dashboard &gt; kube_pipeline</code></p>
+<ul>
+<li><code>지금 빌드</code></li>
+</ul>
+<hr>
+<h2 id="실습-5-19-최종-argo-cd-애플리케이션-생성">실습 5-19: 최종 Argo CD 애플리케이션 생성 </h2>
+<h3 id="애플리케이션-생성-1">애플리케이션 생성 </h3>
+<p><code>Applications &gt; + NEW APP</code></p>
+<ul>
+<li>GENERAL
+<ul>
+<li>Application Name: <code>hello-world</code></li>
+<li>Project: <code>default</code></li>
+<li>SYNC POLICY: <code>Automatic</code></li>
+</ul>
+</li>
+<li>SOURCE
+<ul>
+<li>Repository URL: <code>&lt;URL&gt;</code></li>
+<li>Path: <code>.</code></li>
+</ul>
+</li>
+<li>DESTINATION
+<ul>
+<li>Cluster URL: <code>https://kubernetes.default.svc</code></li>
+<li>Namespace: <code>default</code></li>
+</ul>
+</li>
+<li><code>CREATE</code></li>
+</ul>
+<h3 id="애플리케이션-확인-1">애플리케이션 확인 </h3>
+<p><code>argocd/hello-world</code> 선택</p>
+<h3 id="쿠버네티스-오브젝트-확인-1">쿠버네티스 오브젝트 확인 </h3>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get all
+</code></pre><h3 id="최종적으로-소스-코드-변경-시-cicd가-적절하게-이루어-지는지-확인">최종적으로 소스 코드 변경 시 CI/CD가 적절하게 이루어 지는지 확인 </h3>
+<p>JAVA 소스코드 파일 수정</p>
+<p><code>src/main/webapp/WEB-INF/views/index.jsp</code></p>
+<pre data-role="codeBlock" data-info="html" class="language-html html"><code>&lt;%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%&gt;
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>title</span><span class="token punctuation">&gt;</span></span>Hello World<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>title</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>head</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h1</span><span class="token punctuation">&gt;</span></span>${msg}<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h1</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h2</span><span class="token punctuation">&gt;</span></span>Today is <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span><span class="token namespace">fmt:</span>formatDate</span> <span class="token attr-name">value</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>${today}<span class="token punctuation">"</span></span> <span class="token attr-name">pattern</span><span class="token attr-value"><span class="token punctuation attr-equals">=</span><span class="token punctuation">"</span>yyyy-MM-dd<span class="token punctuation">"</span></span><span class="token punctuation">/&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h2</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>h3</span><span class="token punctuation">&gt;</span></span>Version: 2.0<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>h3</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>body</span><span class="token punctuation">&gt;</span></span>
+<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>html</span><span class="token punctuation">&gt;</span></span>
+</code></pre><pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code><span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">.</span>
+<span class="token function">git</span> commit <span class="token parameter variable">-m</span> <span class="token operator">&lt;</span>MESSAGE<span class="token operator">&gt;</span>
+<span class="token function">git</span> push
+</code></pre><hr>
+<h2 id="실습-5-20-프로메테우스-설치-및-대시보드-확인">실습 5-20: 프로메테우스 설치 및 대시보드 확인 </h2>
+<p>네임스페이스 생성:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create namespace monitor
+</code></pre><p>헬름 차트 저장소 추가:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo <span class="token function">add</span> prometheus-community https://prometheus-community.github.io/helm-charts
+</code></pre><p>차트 목록 업데이트:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo update
+</code></pre><p>차트 사용자화 파라미터 파일 생성:</p>
+<p><code>prometheus-grafana.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">grafana</span><span class="token punctuation">:</span>
+  <span class="token key atrule">service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+</code></pre><p>헬름 차트 설치:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm <span class="token function">install</span> prom prometheus-community/kube-prometheus-stack <span class="token parameter variable">-f</span> prometheus-grafana.yaml <span class="token parameter variable">-n</span> monitor
+</code></pre><p>프로메테우스 서비스 주소 확인:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl get svc prom-grafana <span class="token parameter variable">-n</span> monitor
+</code></pre><p>ID: admin<br>
+패스워드: prom-operator</p>
+<hr>
+<h2 id="실습-5-21-프로메테우스에서-젠킨스-메트릭-대시보드-확인">실습 5-21: 프로메테우스에서 젠킨스 메트릭 대시보드 확인 </h2>
+<p><code>Dashboard &gt; Jenkins 관리 &gt; 플러그인 관리</code></p>
+<ul>
+<li>설치 가능 &gt; <code>Prometheus metrics plugin</code></li>
+<li>젠킨스 재시작 필요</li>
+</ul>
+<p>젠킨스 프로메테우스 메트릭 주소</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>https://&lt;JENKINS_IP|URL&gt;:8080/prometheus
+</code></pre><p>쿠버네티스 내부 서비스 주소에서 젠킨스 프로메테우스 메트릭 주소</p>
+<pre data-role="codeBlock" data-info="text" class="language-text text"><code>https://&lt;SVC_NAME&gt;.&lt;NS_NAME&gt;.svc.cluster.local:8080/prometheus
+https://jenkins.jenkins.svc.cluster.local:8080/prometheus
+</code></pre><p>젠킨스 파라미터를 수집하기 위한 차트 사용자화 파라미터 파일 수정:</p>
+<p><code>prometheus-grafana.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code><span class="token key atrule">grafana</span><span class="token punctuation">:</span>
+  <span class="token key atrule">service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+
+<span class="token key atrule">prometheus</span><span class="token punctuation">:</span>
+  <span class="token key atrule">prometheusSpec</span><span class="token punctuation">:</span>
+    <span class="token key atrule">additionalScrapeConfigs</span><span class="token punctuation">:</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> jenkins
+      <span class="token key atrule">metrics_path</span><span class="token punctuation">:</span> <span class="token string">'/prometheus'</span>
+      <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> jenkins.jenkins.svc.cluster.local<span class="token punctuation">:</span><span class="token number">8080</span>
+</code></pre><p>프로메테우스 헬름 차트 업그레이드:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm upgrade prom prometheus-community/kube-prometheus-stack <span class="token parameter variable">-f</span> prometheus-grafana.yaml <span class="token parameter variable">-n</span> monitor
+</code></pre><p>젠킨스 대시보드 추가:</p>
+<ul>
+<li>그라파나 대시보드 접속
+<ul>
+<li><code>Dashboards &gt; Import</code>
+<ul>
+<li>Import via <a href="http://grafana.com">grafana.com</a>:
+<ul>
+<li><code>9964</code></li>
+<li><code>Load</code> 선택</li>
+<li>적절한 이름 지정
+<ul>
+<li>Prometheus: <code>Prometheus</code> 소스 선택</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="실습-5-22-efk-설치-및-kibana-로그-인덱싱-및-로그-확인">실습 5-22: EFK 설치 및 Kibana 로그 인덱싱 및 로그 확인 </h2>
+<h3 id="elasticsearch--kibana-설치">Elasticsearch &amp; Kibana 설치 </h3>
+<p>logging 네임스페이스 생성:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>kubectl create namespace logging
+</code></pre><p>헬름 차트 추가:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo <span class="token function">add</span> bitnami https://charts.bitnami.com/bitnami
+</code></pre><p>차트 목록 업데이트:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo update
+</code></pre><p>차트 파라미터 파일 생성:</p>
+<p><code>elastic.yaml</code></p>
+<pre data-role="codeBlock" data-info="yml" class="language-yaml yml"><code> <span class="token key atrule">global</span><span class="token punctuation">:</span>
+  <span class="token key atrule">kibanaEnabled</span><span class="token punctuation">:</span> <span class="token boolean important">true</span>
+<span class="token key atrule">master</span><span class="token punctuation">:</span>
+  <span class="token key atrule">masterOnly</span><span class="token punctuation">:</span> <span class="token boolean important">false</span>
+  <span class="token key atrule">replicaCount</span><span class="token punctuation">:</span> <span class="token number">1</span>
+  <span class="token comment"># persistence:</span>
+  <span class="token comment">#   storageClass: "standard"</span>
+<span class="token key atrule">data</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicaCount</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token key atrule">coordinating</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicaCount</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token key atrule">ingest</span><span class="token punctuation">:</span>
+  <span class="token key atrule">replicaCount</span><span class="token punctuation">:</span> <span class="token number">0</span>
+<span class="token key atrule">kibana</span><span class="token punctuation">:</span>
+  <span class="token key atrule">service</span><span class="token punctuation">:</span>
+    <span class="token key atrule">type</span><span class="token punctuation">:</span> LoadBalancer
+</code></pre><p>차트 설치:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm upgrade <span class="token parameter variable">--install</span> elasticsearch <span class="token parameter variable">-f</span> elastic.yaml bitnami/elasticsearch <span class="token parameter variable">-n</span> logging
+</code></pre><h3 id="fluentbit-설치">FluentBit 설치 </h3>
+<p>헬름 차트 추가:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo <span class="token function">add</span> fluent https://fluent.github.io/helm-charts
+</code></pre><p>차트 목록 업데이트:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm repo update
+</code></pre><p>차트 파라미터 파일 생성:</p>
+<p><code>fluent-bit.yaml</code></p>
+<pre data-role="codeBlock" data-info="yaml" class="language-yaml yaml"><code><span class="token key atrule">config</span><span class="token punctuation">:</span>
+  <span class="token key atrule">outputs</span><span class="token punctuation">:</span> <span class="token punctuation">|</span><span class="token scalar string">
+    [OUTPUT]
+        Name es
+        Match *
+        Host elasticsearch.logging.svc.cluster.local
+        Port 9200
+        # tls Off
+        # tls.verify Off
+        Retry_Limit False
+        Logstash_Format On
+        Logstash_Prefix fluent-bit
+        Trace_Error On
+        Replace_Dots On
+        Suppress_Type_Name On</span>
+</code></pre><p>헬름 차트 설치:</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm upgrade <span class="token parameter variable">--install</span> fluent-bit <span class="token parameter variable">-f</span> fluent-bit.yaml fluent/fluent-bit <span class="token parameter variable">-n</span> logging
+</code></pre><h3 id="kibana-확인-및-접속">Kibana 확인 및 접속 </h3>
+<p>Kibana 서비스의 주소 확인</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>$ kubectl get service elasticsearch-kibana -n logging
+
+NAME                   TYPE           CLUSTER-IP      EXTERNAL-IP      PORT(S)          AGE
+elasticsearch-kibana   LoadBalancer   10.233.46.186   192.168.56.200   5601:30583/TCP   25s
+</code></pre><p>Kibana 서비스는 5601 포트를 사용</p>
+<pre data-role="codeBlock" data-info="" class="language-text text"><code>http://X.X.X.X:5601
+</code></pre><h3 id="kibana-로그-인덱싱">Kibana 로그 인덱싱 </h3>
+<ol>
+<li>Welcome to Elastic: <code>Explore on my own</code> 선택</li>
+<li>햄버거 메뉴 --&gt; Analytics --&gt; Discover</li>
+<li><code>Create data view</code> 선택</li>
+</ol>
+<ul>
+<li>Name: <code>Fluent-bit</code></li>
+<li>Index pattern: <code>fluent-bit-*</code></li>
+<li>Timestamp filed: <code>@timestamp</code> 선택</li>
+<li><code>Save data view to Kibana</code> 선택</li>
+</ul>
+<ol start="4">
+<li>로그 검색</li>
+</ol>
+<hr>
+<h2 id="실습-5-23-실습환경클라우드-최종-정리">실습 5-23: 실습환경(클라우드) 최종 정리 </h2>
+<p>쿠버네티스 외부 리소스(EBS, ELB) 때문에 EKS가 삭제되지 않음</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash bash"><code>helm uninstall mydb
+helm uninstall prom <span class="token parameter variable">-n</span> monitor
+helm uninstall kibana <span class="token parameter variable">-n</span> logging
+helm uninstall fluent-bit <span class="token parameter variable">-n</span> logging
+helm uninstall elasticsearch <span class="token parameter variable">-n</span> logging
+helm uninstall jenkins <span class="token parameter variable">-n</span> jenkins
+kubectl delete all <span class="token parameter variable">--all</span> <span class="token parameter variable">-n</span> argocd
+kubectl delete pvc <span class="token parameter variable">--all</span> --all-namespaces
+eksctl delete cluster <span class="token parameter variable">--name</span> myeks
+</code></pre><p>EKS 클러스터 삭제에 약 10분 소요</p>
+<hr>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
