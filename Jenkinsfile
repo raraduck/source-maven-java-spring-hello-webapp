@@ -17,15 +17,15 @@ pipeline {
         sh 'echo "Hi"'
       }
     }
-    #stage('Test') {
-      #steps {
-        #sh '<COMMAND>'
-      #}
-    #}
-    #stage('Deploy') {
-      #steps {
-        #deploy adapters: [tomcat9(credentialsId: '<NAME>', url: '<URL>')], contextPath: null, war: 'path/to/war'
-      #}
-    #}
+    /*stage('Test') {
+      steps {
+        sh '<COMMAND>'
+      }
+    }
+    stage('Deploy') {
+      steps {
+        deploy adapters: [tomcat9(credentialsId: '<NAME>', url: '<URL>')], contextPath: null, war: 'path/to/war'
+      }
+    }*/
   }
 }
