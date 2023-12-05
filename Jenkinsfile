@@ -1,5 +1,8 @@
 pipeline {
-    agent any
+    agent {
+      label "jenkins-node"
+    }
+    // agent any
 
     triggers {
         pollSCM('* * * * *')
@@ -20,16 +23,16 @@ pipeline {
                     }
                 }
             }
+			stage('Build') {
+				steps {
+					sh 'mvn clean package -DskipTests=true'
+				}
+			}
+			stage('Deploy') {
+				steps {
+					deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', path: '', url: 'http://3.38.205.251:8080/')], contextPath: null, war: 'target/hello-world.war'
+				}
+			}
         }
-		stage('Build') {
-			steps {
-				sh 'mvn clean package -DskipTests=true'
-			}
-		}
-		stage('Deploy') {
-			steps {
-				deploy adapters: [tomcat9(credentialsId: 'tomcat-manager', path: '', url: 'http://3.38.205.251:8080/')], contextPath: null, war: 'target/hello-world.war'
-			}
-		}
     }
 }
