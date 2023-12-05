@@ -16,6 +16,9 @@ pipeline {
       steps {
         sh 'mvn clean package'
       }
+      post {
+	echo 'complete! build'
+      }
     }
     /*stage('Test') {
       steps {
