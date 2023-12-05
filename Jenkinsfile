@@ -6,29 +6,26 @@ pipeline {
   }
 
   stages {
-    stage('Checkout') {
-      steps {
-        git branch: 'main', 
-        url: 'https://github.com/raraduck/source-maven-java-spring-hello-webapp.git'
-      }
+    stage('Parallel Job') {
+	parallel {
+	    stage('Parallel1: Checkout') {
+	      steps {
+		git branch: 'main', 
+		url: 'https://github.com/raraduck/source-maven-java-spring-hello-webapp.git'
+	      }
+	    }
+	    stage('Build') {
+	      steps {
+		sh 'mvn clean package'
+	      }
+	    }
+	}
+	parallel {
+	    stage('Parallel2: Test') {
+	      steps {
+		echo 'parallel2'
+	      }
+	    }
+	}
     }
-    stage('Build') {
-      steps {
-        sh 'mvn clean package'
-      }
-      post {
-	echo 'complete! build'
-      }
-    }
-    /*stage('Test') {
-      steps {
-        sh '<COMMAND>'
-      }
-    }
-    stage('Deploy') {
-      steps {
-        deploy adapters: [tomcat9(credentialsId: '<NAME>', url: '<URL>')], contextPath: null, war: 'path/to/war'
-      }
-    }*/
-  }
 }
